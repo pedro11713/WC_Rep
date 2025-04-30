@@ -1,0 +1,44 @@
+.search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  flex: 1;
+}
+
+.filter-button {
+  margin-left: 10px;
+  padding: 10px;
+  background-color: #ddd;
+  cursor: pointer;
+  position: relative;
+  border-radius: 4px;
+}
+
+.filter-menu {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  list-style: none;
+  padding: 5px 0;
+  margin: 0;
+  width: 150px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  z-index: 100;
+}
+
+.filter-menu li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.filter-menu li:hover {
+  background-color: #f0f0f0;
+}
