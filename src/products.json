@@ -1,0 +1,2984 @@
+[
+  {
+    "id": 1,
+    "name": "Faux Fur Coat",
+    "description": "A luxurious faux fur coat that adds glamour to any outfit.",
+    "price": 129.99,
+    "category": "Clothing - Coats",
+    "stock": 36,
+    "date": "3/1/2024",
+    "size": [
+      "small",
+      "medium"
+    ],
+    "color": [
+      "blue",
+      "white",
+      "black",
+      "green"
+    ],
+    "reviews": [
+      {
+        "username": "Cami Hawney",
+        "score": 4,
+        "comment": "sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed"
+      },
+      {
+        "username": "Julita Brotherton",
+        "score": 2,
+        "comment": "ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Avocado Lime Dressing",
+    "description": "Refreshing dressing made with avocado and lime, perfect for salads.",
+    "price": 4.29,
+    "category": "Food - Condiments",
+    "stock": 5,
+    "date": "2/7/2024",
+    "size": [
+      "small",
+      "large"
+    ],
+    "color": [
+      "white",
+      "green",
+      "black",
+      "blue"
+    ],
+    "reviews": [
+      {
+        "username": "Silvester Johnston",
+        "score": 2,
+        "comment": "dui vel sem sed sagittis nam congue risus semper porta volutpat quam"
+      },
+      {
+        "username": "Robena Selwyn",
+        "score": 4,
+        "comment": "rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed"
+      },
+      {
+        "username": "Darrin Taplin",
+        "score": 5,
+        "comment": "integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Blender Bottle",
+    "description": "Portable mixer bottle for smoothies and protein shakes.",
+    "price": 12.99,
+    "category": "Fitness",
+    "stock": 39,
+    "date": "3/30/2025",
+    "size": [
+      "large",
+      "medium"
+    ],
+    "color": [
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Wright McIlwain",
+        "score": 5,
+        "comment": "sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Infrared Thermometer Gun",
+    "description": "Non-contact thermometer for quick and easy temperature readings.",
+    "price": 29.99,
+    "category": "Health",
+    "stock": 28,
+    "date": "10/26/2024",
+    "size": [
+      "small"
+    ],
+    "color": [
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Kitty Cowles",
+        "score": 4,
+        "comment": "vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem"
+      },
+      {
+        "username": "Florenza Yeldham",
+        "score": 5,
+        "comment": "eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus"
+      },
+      {
+        "username": "Valdemar Sallery",
+        "score": 4,
+        "comment": "sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Travel Mug with Leak-Proof Lid",
+    "description": "Stainless steel travel mug that keeps drinks hot or cold.",
+    "price": 24.99,
+    "category": "Kitchen",
+    "stock": 28,
+    "date": "5/9/2024",
+    "size": [
+      "medium",
+      "large",
+      "small"
+    ],
+    "color": [
+      "white",
+      "green"
+    ],
+    "reviews": [
+      {
+        "username": "Ardisj Winsper",
+        "score": 2,
+        "comment": "ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Mango Chunks",
+    "description": "Frozen mango chunks for smoothies or snacking.",
+    "price": 4.89,
+    "category": "Food - Frozen Fruits",
+    "stock": 31,
+    "date": "6/18/2024",
+    "size": [
+      "large",
+      "small",
+      "medium"
+    ],
+    "color": [
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Zuzana Farleigh",
+        "score": 2,
+        "comment": "quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede"
+      },
+      {
+        "username": "Gert Sheppey",
+        "score": 3,
+        "comment": "consequat in consequat ut nulla sed accumsan felis ut at"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Ice Cube Tray with Lid",
+    "description": "Silicone tray for making ice cubes with a lid to prevent spills.",
+    "price": 10.99,
+    "category": "Kitchen",
+    "stock": 12,
+    "date": "4/28/2024",
+    "size": [
+      "medium"
+    ],
+    "color": [
+      "white",
+      "green"
+    ],
+    "reviews": [
+      {
+        "username": "Collie Leamy",
+        "score": 3,
+        "comment": "sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel"
+      },
+      {
+        "username": "May Richardot",
+        "score": 2,
+        "comment": "ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti"
+      },
+      {
+        "username": "Bert Enticknap",
+        "score": 1,
+        "comment": "tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Roasted Garlic Butter",
+    "description": "A flavorful spread made with roasted garlic and creamy butter.",
+    "price": 3.29,
+    "category": "Food - Condiments",
+    "stock": 9,
+    "date": "1/4/2024",
+    "size": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "color": [
+      "blue",
+      "green",
+      "black"
+    ],
+    "reviews": [
+      {
+        "username": "Rowan Grosvener",
+        "score": 3,
+        "comment": "turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris"
+      },
+      {
+        "username": "Rana Burkwood",
+        "score": 4,
+        "comment": "velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Handcrafted Wooden Coasters",
+    "description": "Set of unique wooden coasters for drinks and decor.",
+    "price": 19.99,
+    "category": "Home",
+    "stock": 37,
+    "date": "2/3/2024",
+    "size": [
+      "medium",
+      "large"
+    ],
+    "color": [
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Malcolm Exrol",
+        "score": 3,
+        "comment": "purus phasellus in felis donec semper sapien a libero nam dui proin"
+      },
+      {
+        "username": "Sandor Fache",
+        "score": 3,
+        "comment": "sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus"
+      },
+      {
+        "username": "Addy Essex",
+        "score": 3,
+        "comment": "adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Apple Juice",
+    "description": "Refreshing apple juice, 100% juice with no added sugar.",
+    "price": 3.29,
+    "category": "Food - Beverages",
+    "stock": 14,
+    "date": "2/2/2025",
+    "size": [
+      "small",
+      "medium"
+    ],
+    "color": [
+      "white",
+      "blue",
+      "black"
+    ],
+    "reviews": [
+      {
+        "username": "Alli Horsey",
+        "score": 3,
+        "comment": "venenatis non sodales sed tincidunt eu felis fusce posuere felis sed"
+      },
+      {
+        "username": "Darryl Prangnell",
+        "score": 2,
+        "comment": "turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Winter Insulated Jacket",
+    "description": "Warm and stylish jacket for cold weather.",
+    "price": 89.99,
+    "category": "Clothing",
+    "stock": 35,
+    "date": "12/15/2024",
+    "size": [
+      "large",
+      "small",
+      "medium"
+    ],
+    "color": [
+      "black",
+      "blue",
+      "white",
+      "green"
+    ],
+    "reviews": [
+      {
+        "username": "Cinda Bradnum",
+        "score": 1,
+        "comment": "vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede"
+      },
+      {
+        "username": "Lonni Hargitt",
+        "score": 5,
+        "comment": "duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Ginger Turmeric Tea",
+    "description": "Herbal tea blend with ginger and turmeric for a soothing drink.",
+    "price": 3.49,
+    "category": "Food - Beverages",
+    "stock": 15,
+    "date": "4/10/2024",
+    "size": [
+      "medium",
+      "large"
+    ],
+    "color": [
+      "green",
+      "blue",
+      "black",
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Blythe Measey",
+        "score": 1,
+        "comment": "morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis"
+      },
+      {
+        "username": "Tabby Binney",
+        "score": 5,
+        "comment": "hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Customizable Wall Calendar",
+    "description": "Personalize your calendar with photos and special dates.",
+    "price": 24.99,
+    "category": "Office",
+    "stock": 21,
+    "date": "2/2/2025",
+    "size": [
+      "small",
+      "large"
+    ],
+    "color": [
+      "white",
+      "blue",
+      "black",
+      "green"
+    ],
+    "reviews": [
+      {
+        "username": "Allissa Parman",
+        "score": 4,
+        "comment": "posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit"
+      },
+      {
+        "username": "Cacilie Kembery",
+        "score": 2,
+        "comment": "sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus"
+      },
+      {
+        "username": "Orion Scheffel",
+        "score": 1,
+        "comment": "mi integer ac neque duis bibendum morbi non quam nec"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Key Finder",
+    "description": "Bluetooth-enabled key tracker to find lost items easily.",
+    "price": 19.99,
+    "category": "Accessories",
+    "stock": 8,
+    "date": "1/18/2025",
+    "size": [
+      "small",
+      "large",
+      "medium"
+    ],
+    "color": [
+      "white",
+      "blue"
+    ],
+    "reviews": [
+      {
+        "username": "Quinton Gascard",
+        "score": 5,
+        "comment": "dolor sit amet consectetuer adipiscing elit proin risus praesent lectus vestibulum quam"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Beef Tacos",
+    "description": "Pre-seasoned beef mix for delicious tacos, just heat and serve.",
+    "price": 5.49,
+    "category": "Food - Meat",
+    "stock": 0,
+    "date": "12/8/2024",
+    "size": [
+      "large",
+      "small",
+      "medium"
+    ],
+    "color": [
+      "white",
+      "black"
+    ],
+    "reviews": [
+      {
+        "username": "Jocelyn Klementz",
+        "score": 5,
+        "comment": "aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Bluetooth Sleep Headphones",
+    "description": "Comfortable wireless headphones designed for sleeping.",
+    "price": 29.99,
+    "category": "Audio",
+    "stock": 13,
+    "date": "12/4/2024",
+    "size": [
+      "medium",
+      "large"
+    ],
+    "color": [
+      "blue",
+      "green"
+    ],
+    "reviews": [
+      {
+        "username": "Helena Castro",
+        "score": 5,
+        "comment": "orci pede venenatis non sodales sed tincidunt eu felis fusce posuere"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Personal Blender",
+    "description": "Compact blender for quick smoothies and shakes.",
+    "price": 39.99,
+    "category": "Kitchen",
+    "stock": 27,
+    "date": "7/26/2024",
+    "size": [
+      "large",
+      "medium",
+      "small"
+    ],
+    "color": [
+      "green",
+      "black",
+      "blue"
+    ],
+    "reviews": [
+      {
+        "username": "Stuart Ceschelli",
+        "score": 4,
+        "comment": "eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra"
+      },
+      {
+        "username": "Greer Januszewicz",
+        "score": 2,
+        "comment": "congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean"
+      },
+      {
+        "username": "Noni Haslum",
+        "score": 5,
+        "comment": "nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Adjustable Standing Desk",
+    "description": "Ergonomic desk that adjusts height for standing or sitting.",
+    "price": 299.99,
+    "category": "Office",
+    "stock": 30,
+    "date": "2/10/2024",
+    "size": [
+      "medium",
+      "small",
+      "large"
+    ],
+    "color": [
+      "blue",
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Lois Sea",
+        "score": 4,
+        "comment": "accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a"
+      },
+      {
+        "username": "Hakim Bragger",
+        "score": 3,
+        "comment": "maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Banana Nut Oatmeal Cups",
+    "description": "Quick oatmeal cups with banana and nut flavor, great for breakfast.",
+    "price": 2.99,
+    "category": "Food - Breakfast",
+    "stock": 20,
+    "date": "7/20/2024",
+    "size": [
+      "small",
+      "large",
+      "medium"
+    ],
+    "color": [
+      "blue",
+      "white",
+      "green",
+      "black"
+    ],
+    "reviews": [
+      {
+        "username": "Hilliary Dimitriades",
+        "score": 5,
+        "comment": "id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra"
+      },
+      {
+        "username": "Rayna Escott",
+        "score": 4,
+        "comment": "sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Chickpea Snack Mix",
+    "description": "Crunchy, seasoned chickpeas for a wholesome snack.",
+    "price": 3.49,
+    "category": "Food - Snacks",
+    "stock": 38,
+    "date": "11/28/2024",
+    "size": [
+      "large"
+    ],
+    "color": [
+      "white",
+      "blue"
+    ],
+    "reviews": [
+      {
+        "username": "Brett Reddell",
+        "score": 5,
+        "comment": "arcu libero rutrum ac lobortis vel dapibus at diam nam tristique"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Mango Salsa",
+    "description": "Fresh mango salsa with a hint of lime for a zesty topping.",
+    "price": 3.49,
+    "category": "Food - Condiments",
+    "stock": 25,
+    "date": "1/2/2024",
+    "size": [
+      "medium",
+      "large"
+    ],
+    "color": [
+      "black",
+      "white",
+      "green"
+    ],
+    "reviews": [
+      {
+        "username": "Harald Wignall",
+        "score": 2,
+        "comment": "lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer"
+      },
+      {
+        "username": "Bastian Wong",
+        "score": 3,
+        "comment": "erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in"
+      },
+      {
+        "username": "Phaidra Fogden",
+        "score": 4,
+        "comment": "nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Travel Jewelry Case",
+    "description": "Portable case to organize and protect jewelry on trips.",
+    "price": 24.99,
+    "category": "Accessories",
+    "stock": 39,
+    "date": "2/13/2024",
+    "size": [
+      "large"
+    ],
+    "color": [
+      "black",
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Raeann Chidler",
+        "score": 5,
+        "comment": "augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa"
+      },
+      {
+        "username": "Milty Tombs",
+        "score": 2,
+        "comment": "vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Tabletop Fire Pit",
+    "description": "Compact and stylish indoor/outdoor fire pit for ambiance.",
+    "price": 79.99,
+    "category": "Outdoor",
+    "stock": 40,
+    "date": "7/28/2024",
+    "size": [
+      "small"
+    ],
+    "color": [
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Patricio Pretsell",
+        "score": 3,
+        "comment": "vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec"
+      },
+      {
+        "username": "Leonie Bednell",
+        "score": 2,
+        "comment": "non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Frozen Fruit Medley",
+    "description": "A mix of strawberries, blueberries, and raspberries, perfect for smoothies.",
+    "price": 5.99,
+    "category": "Food - Frozen Foods",
+    "stock": 29,
+    "date": "11/26/2024",
+    "size": [
+      "medium",
+      "small",
+      "large"
+    ],
+    "color": [
+      "blue",
+      "green",
+      "black",
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Angelia O'Grogane",
+        "score": 4,
+        "comment": "iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id"
+      },
+      {
+        "username": "Roselin Gawthorpe",
+        "score": 4,
+        "comment": "cubilia curae nulla dapibus dolor vel est donec odio justo"
+      },
+      {
+        "username": "Bent Brister",
+        "score": 3,
+        "comment": "nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Electric Food Slicer",
+    "description": "Versatile slicer for meats, cheeses, and vegetables.",
+    "price": 99.99,
+    "category": "Kitchen",
+    "stock": 8,
+    "date": "1/29/2024",
+    "size": [
+      "small"
+    ],
+    "color": [
+      "white",
+      "green",
+      "black"
+    ],
+    "reviews": [
+      {
+        "username": "Rory Dicty",
+        "score": 2,
+        "comment": "a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at"
+      },
+      {
+        "username": "Brunhilda Alvares",
+        "score": 5,
+        "comment": "lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in"
+      },
+      {
+        "username": "Felicdad Dallinder",
+        "score": 2,
+        "comment": "elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus"
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Herbal Tea Variety Pack",
+    "description": "Assorted herbal teas, perfect for a warm and relaxing drink.",
+    "price": 4.99,
+    "category": "Food - Beverages",
+    "stock": 26,
+    "date": "1/12/2024",
+    "size": [
+      "small"
+    ],
+    "color": [
+      "green"
+    ],
+    "reviews": [
+      {
+        "username": "Faustine Richten",
+        "score": 3,
+        "comment": "cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Portable Solar Path Lights",
+    "description": "Eco-friendly solar lights for pathways and gardens.",
+    "price": 39.99,
+    "category": "Outdoor",
+    "stock": 10,
+    "date": "3/19/2025",
+    "size": [
+      "large",
+      "small"
+    ],
+    "color": [
+      "green",
+      "blue"
+    ],
+    "reviews": [
+      {
+        "username": "Konstanze Dellit",
+        "score": 4,
+        "comment": "erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris"
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Fire Roasted Salsa",
+    "description": "Salsa made with fire-roasted tomatoes for an authentic flavor.",
+    "price": 2.49,
+    "category": "Food - Condiments",
+    "stock": 21,
+    "date": "9/16/2024",
+    "size": [
+      "medium"
+    ],
+    "color": [
+      "green"
+    ],
+    "reviews": [
+      {
+        "username": "Dawna Peterson",
+        "score": 4,
+        "comment": "id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis"
+      },
+      {
+        "username": "Ricky Bruford",
+        "score": 5,
+        "comment": "odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi"
+      },
+      {
+        "username": "Bronson Baudon",
+        "score": 5,
+        "comment": "orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio"
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Portable Solar Generator",
+    "description": "Eco-friendly generator for outdoor adventures.",
+    "price": 399.99,
+    "category": "Outdoor",
+    "stock": 23,
+    "date": "9/19/2024",
+    "size": [
+      "medium",
+      "large",
+      "small"
+    ],
+    "color": [
+      "green"
+    ],
+    "reviews": [
+      {
+        "username": "Virgina Fensome",
+        "score": 5,
+        "comment": "curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit"
+      },
+      {
+        "username": "Ninon Roycraft",
+        "score": 2,
+        "comment": "eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor"
+      },
+      {
+        "username": "Moira Pimlett",
+        "score": 4,
+        "comment": "urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat"
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Teriyaki Sauce",
+    "description": "Sweet and savory sauce for marinating and glazing meats or vegetables.",
+    "price": 2.99,
+    "category": "Food - Condiments",
+    "stock": 27,
+    "date": "8/3/2024",
+    "size": [
+      "small"
+    ],
+    "color": [
+      "black",
+      "green",
+      "blue",
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Ramon Ambrozewicz",
+        "score": 1,
+        "comment": "libero nam dui proin leo odio porttitor id consequat in consequat"
+      },
+      {
+        "username": "Amos Emerton",
+        "score": 2,
+        "comment": "felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices"
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Avocados",
+    "description": "Fresh, creamy avocados ideal for salads and guacamole.",
+    "price": 1.5,
+    "category": "Food - Produce",
+    "stock": 1,
+    "date": "9/15/2024",
+    "size": [
+      "small",
+      "medium"
+    ],
+    "color": [
+      "black",
+      "blue",
+      "green",
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Coral Waker",
+        "score": 1,
+        "comment": "ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel dapibus at diam nam"
+      },
+      {
+        "username": "Randolph Davidavidovics",
+        "score": 4,
+        "comment": "aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in"
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Children's Art Set",
+    "description": "All-in-one art set for kids to unleash creativity.",
+    "price": 34.99,
+    "category": "Toys",
+    "stock": 22,
+    "date": "3/25/2024",
+    "size": [
+      "medium",
+      "small",
+      "large"
+    ],
+    "color": [
+      "black",
+      "blue"
+    ],
+    "reviews": [
+      {
+        "username": "Zedekiah Cleal",
+        "score": 5,
+        "comment": "risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis in faucibus"
+      },
+      {
+        "username": "Rory Bletcher",
+        "score": 5,
+        "comment": "condimentum id luctus nec molestie sed justo pellentesque viverra pede"
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Portable Projector",
+    "description": "Compact projector for movies and presentations on the go.",
+    "price": 199.99,
+    "category": "Electronics",
+    "stock": 19,
+    "date": "1/23/2025",
+    "size": [
+      "medium"
+    ],
+    "color": [
+      "white",
+      "black"
+    ],
+    "reviews": [
+      {
+        "username": "Kelcey Purselowe",
+        "score": 3,
+        "comment": "in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis"
+      },
+      {
+        "username": "Cynthy Zecchini",
+        "score": 3,
+        "comment": "erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque"
+      },
+      {
+        "username": "Estrellita Westlake",
+        "score": 4,
+        "comment": "vestibulum ante ipsum primis in faucibus orci luctus et ultrices"
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Dog Car Seat Cover",
+    "description": "Waterproof cover to protect car seats from pet hair and dirt.",
+    "price": 39.99,
+    "category": "Pets",
+    "stock": 3,
+    "date": "3/21/2024",
+    "size": [
+      "small",
+      "medium"
+    ],
+    "color": [
+      "blue",
+      "black"
+    ],
+    "reviews": [
+      {
+        "username": "Lari Morrison",
+        "score": 5,
+        "comment": "lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque"
+      },
+      {
+        "username": "Julienne Sesons",
+        "score": 4,
+        "comment": "amet justo morbi ut odio cras mi pede malesuada in imperdiet et"
+      },
+      {
+        "username": "Alfie Daoust",
+        "score": 5,
+        "comment": "augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere"
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Frozen Berry Medley",
+    "description": "A mix of strawberries, blueberries, and raspberries, great for smoothies or desserts.",
+    "price": 5.49,
+    "category": "Food - Frozen Foods",
+    "stock": 7,
+    "date": "1/23/2024",
+    "size": [
+      "medium"
+    ],
+    "color": [
+      "black"
+    ],
+    "reviews": [
+      {
+        "username": "Nance Canavan",
+        "score": 1,
+        "comment": "nunc proin at turpis a pede posuere nonummy integer non velit donec diam"
+      },
+      {
+        "username": "Frayda Pinwill",
+        "score": 1,
+        "comment": "augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo"
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "name": "Jigsaw Puzzle",
+    "description": "500-piece jigsaw puzzle featuring beautiful scenery.",
+    "price": 14.99,
+    "category": "Toys",
+    "stock": 15,
+    "date": "4/3/2024",
+    "size": [
+      "large",
+      "medium",
+      "small"
+    ],
+    "color": [
+      "black",
+      "white",
+      "green",
+      "blue"
+    ],
+    "reviews": [
+      {
+        "username": "Gussy Christopherson",
+        "score": 5,
+        "comment": "ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat"
+      },
+      {
+        "username": "Ruy Aird",
+        "score": 1,
+        "comment": "convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet"
+      },
+      {
+        "username": "Nahum Bawdon",
+        "score": 5,
+        "comment": "vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam"
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "name": "Grilled Veggie Burgers",
+    "description": "Delicious veggie burgers loaded with grilled vegetables.",
+    "price": 6.29,
+    "category": "Food - Meat Alternatives",
+    "stock": 39,
+    "date": "8/28/2024",
+    "size": [
+      "small",
+      "large"
+    ],
+    "color": [
+      "green",
+      "white",
+      "blue"
+    ],
+    "reviews": [
+      {
+        "username": "Ginger Cleverly",
+        "score": 2,
+        "comment": "faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut"
+      },
+      {
+        "username": "Robin Gulk",
+        "score": 2,
+        "comment": "sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis"
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "name": "Basil-infused Olive Oil",
+    "description": "Extra virgin olive oil infused with fresh basil.",
+    "price": 6.99,
+    "category": "Food - Cooking Oil",
+    "stock": 17,
+    "date": "3/25/2025",
+    "size": [
+      "large",
+      "medium",
+      "small"
+    ],
+    "color": [
+      "black"
+    ],
+    "reviews": [
+      {
+        "username": "Kellsie Jouanny",
+        "score": 1,
+        "comment": "ipsum dolor sit amet consectetuer adipiscing elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non interdum"
+      },
+      {
+        "username": "Myra Marqyes",
+        "score": 4,
+        "comment": "at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra"
+      },
+      {
+        "username": "Candy Pirrie",
+        "score": 3,
+        "comment": "magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida"
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Coconut Cream Pie Mix",
+    "description": "Creamy, sweet pie mix to make the perfect coconut cream pie.",
+    "price": 4.99,
+    "category": "Food - Baking",
+    "stock": 4,
+    "date": "5/5/2024",
+    "size": [
+      "medium"
+    ],
+    "color": [
+      "black",
+      "green",
+      "blue"
+    ],
+    "reviews": [
+      {
+        "username": "Mei Howey",
+        "score": 3,
+        "comment": "tempus semper est quam pharetra magna ac consequat metus sapien"
+      },
+      {
+        "username": "Morly Bickersteth",
+        "score": 4,
+        "comment": "consectetuer adipiscing elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum"
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Handmade Wooden Utensil Set",
+    "description": "Unique handcrafted utensils for cooking and serving.",
+    "price": 24.99,
+    "category": "Kitchen",
+    "stock": 19,
+    "date": "5/7/2024",
+    "size": [
+      "large"
+    ],
+    "color": [
+      "blue",
+      "black"
+    ],
+    "reviews": [
+      {
+        "username": "Monty Kendred",
+        "score": 2,
+        "comment": "vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum"
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "name": "Organic Whole Wheat Flour",
+    "description": "High-quality whole wheat flour for baking and cooking.",
+    "price": 2.99,
+    "category": "Food - Baking Goods",
+    "stock": 20,
+    "date": "9/1/2024",
+    "size": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "color": [
+      "white",
+      "green",
+      "black",
+      "blue"
+    ],
+    "reviews": [
+      {
+        "username": "Fran Moore",
+        "score": 4,
+        "comment": "platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum"
+      },
+      {
+        "username": "Allan Dell Casa",
+        "score": 5,
+        "comment": "sed tincidunt eu felis fusce posuere felis sed lacus morbi"
+      },
+      {
+        "username": "Marcile Mote",
+        "score": 3,
+        "comment": "augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus"
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Puzzle Mat",
+    "description": "Foldable mat for jigsaw puzzle assembly.",
+    "price": 22.99,
+    "category": "Toys",
+    "stock": 17,
+    "date": "6/2/2024",
+    "size": [
+      "large",
+      "medium"
+    ],
+    "color": [
+      "blue",
+      "white",
+      "green"
+    ],
+    "reviews": [
+      {
+        "username": "Adelina Swindall",
+        "score": 4,
+        "comment": "ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse"
+      },
+      {
+        "username": "Davina Arnatt",
+        "score": 3,
+        "comment": "pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi"
+      },
+      {
+        "username": "Fancie Braley",
+        "score": 3,
+        "comment": "convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh"
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "name": "Nut Butter Cups",
+    "description": "Delicious dark chocolate with creamy nut butter inside.",
+    "price": 3.99,
+    "category": "Food - Snacks",
+    "stock": 14,
+    "date": "2/17/2024",
+    "size": [
+      "large",
+      "small"
+    ],
+    "color": [
+      "white",
+      "black",
+      "blue"
+    ],
+    "reviews": [
+      {
+        "username": "Kristo Benner",
+        "score": 1,
+        "comment": "aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor"
+      },
+      {
+        "username": "Elyse McGinny",
+        "score": 2,
+        "comment": "mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis"
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "name": "Wireless Security Camera",
+    "description": "1080p wireless security camera with night vision.",
+    "price": 109.99,
+    "category": "Home",
+    "stock": 26,
+    "date": "12/6/2024",
+    "size": [
+      "small",
+      "medium"
+    ],
+    "color": [
+      "white",
+      "blue",
+      "black"
+    ],
+    "reviews": [
+      {
+        "username": "Loni Dinnis",
+        "score": 1,
+        "comment": "nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue"
+      },
+      {
+        "username": "Tilda Widmoor",
+        "score": 1,
+        "comment": "vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra"
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "name": "Beef Chili",
+    "description": "Hearty beef chili, ready to heat and eat.",
+    "price": 4.5,
+    "category": "Food - Canned Goods",
+    "stock": 17,
+    "date": "12/26/2024",
+    "size": [
+      "medium",
+      "large"
+    ],
+    "color": [
+      "green",
+      "black",
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Joelly Peschka",
+        "score": 5,
+        "comment": "faucibus accumsan odio curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel"
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "name": "Watercolor Set",
+    "description": "Complete watercolor set with paints and brushes.",
+    "price": 19.99,
+    "category": "Art Supplies",
+    "stock": 2,
+    "date": "7/10/2024",
+    "size": [
+      "small",
+      "large",
+      "medium"
+    ],
+    "color": [
+      "black",
+      "blue",
+      "white",
+      "green"
+    ],
+    "reviews": [
+      {
+        "username": "Cora Cocks",
+        "score": 2,
+        "comment": "sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus"
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "name": "Compact Dishwasher",
+    "description": "Countertop dishwasher for small kitchens.",
+    "price": 299.99,
+    "category": "Home Appliances",
+    "stock": 40,
+    "date": "6/18/2024",
+    "size": [
+      "large",
+      "medium",
+      "small"
+    ],
+    "color": [
+      "green"
+    ],
+    "reviews": [
+      {
+        "username": "Clyve De Clairmont",
+        "score": 1,
+        "comment": "vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non"
+      },
+      {
+        "username": "Eileen De Mitris",
+        "score": 5,
+        "comment": "velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla"
+      },
+      {
+        "username": "Webster Grishanin",
+        "score": 4,
+        "comment": "arcu libero rutrum ac lobortis vel dapibus at diam nam tristique"
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "name": "Pet Bed with Removable Cover",
+    "description": "Comfy pet bed with washable cover for easy cleaning.",
+    "price": 49.99,
+    "category": "Pets",
+    "stock": 23,
+    "date": "4/11/2024",
+    "size": [
+      "medium"
+    ],
+    "color": [
+      "black"
+    ],
+    "reviews": [
+      {
+        "username": "Andrei Hebbes",
+        "score": 5,
+        "comment": "vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque"
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "name": "Hibiscus Tea Bags",
+    "description": "Herbal tea bags made from dried hibiscus flowers.",
+    "price": 3.79,
+    "category": "Food - Beverages",
+    "stock": 5,
+    "date": "2/11/2025",
+    "size": [
+      "medium"
+    ],
+    "color": [
+      "black"
+    ],
+    "reviews": [
+      {
+        "username": "Weider Corke",
+        "score": 5,
+        "comment": "ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et"
+      },
+      {
+        "username": "Cathyleen Boyett",
+        "score": 5,
+        "comment": "dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum"
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "name": "Tea Infuser",
+    "description": "Silicone tea infuser for brewing loose leaf tea.",
+    "price": 12.99,
+    "category": "Kitchen",
+    "stock": 16,
+    "date": "1/30/2024",
+    "size": [
+      "large",
+      "small"
+    ],
+    "color": [
+      "black",
+      "blue",
+      "green",
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Ninetta Jeffs",
+        "score": 4,
+        "comment": "condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque"
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "name": "Honey BBQ Riblets",
+    "description": "Tender riblets coated in a honey barbecue glaze, perfect for grilling or baking.",
+    "price": 12.99,
+    "category": "Food - Meat",
+    "stock": 27,
+    "date": "1/5/2024",
+    "size": [
+      "medium",
+      "large"
+    ],
+    "color": [
+      "blue",
+      "green",
+      "white",
+      "black"
+    ],
+    "reviews": [
+      {
+        "username": "Philippe Deniseau",
+        "score": 3,
+        "comment": "quisque ut erat curabitur gravida nisi at nibh in hac"
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "name": "Non-Stick Crepe Pan",
+    "description": "Perfectly designed pan for making crepes and pancakes.",
+    "price": 29.99,
+    "category": "Kitchen",
+    "stock": 0,
+    "date": "6/5/2024",
+    "size": [
+      "medium",
+      "large",
+      "small"
+    ],
+    "color": [
+      "white",
+      "black",
+      "green"
+    ],
+    "reviews": [
+      {
+        "username": "Charissa Burrass",
+        "score": 5,
+        "comment": "convallis duis consequat dui nec nisi volutpat eleifend donec ut"
+      },
+      {
+        "username": "Nonnah Haxbie",
+        "score": 1,
+        "comment": "id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam"
+      },
+      {
+        "username": "Rourke Heindrich",
+        "score": 3,
+        "comment": "facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus"
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "name": "Electric Opener for Jars and Bottles",
+    "description": "Easily opens jar lids and bottle caps with one touch.",
+    "price": 24.99,
+    "category": "Kitchen",
+    "stock": 28,
+    "date": "4/28/2024",
+    "size": [
+      "large",
+      "medium"
+    ],
+    "color": [
+      "white",
+      "green",
+      "black",
+      "blue"
+    ],
+    "reviews": [
+      {
+        "username": "Wallace Cinnamond",
+        "score": 4,
+        "comment": "erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper"
+      },
+      {
+        "username": "Rozamond Taberer",
+        "score": 5,
+        "comment": "dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est"
+      },
+      {
+        "username": "Derron Bonehill",
+        "score": 3,
+        "comment": "sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget"
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "name": "Ripped Boyfriend Jeans",
+    "description": "Stylish ripped boyfriend jeans for a relaxed, effortlessly cool vibe.",
+    "price": 54.99,
+    "category": "Clothing - Bottoms",
+    "stock": 36,
+    "date": "2/19/2025",
+    "size": [
+      "medium",
+      "small",
+      "large"
+    ],
+    "color": [
+      "black",
+      "green",
+      "blue",
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Carmelia Whimpenny",
+        "score": 1,
+        "comment": "sit amet eros suspendisse accumsan tortor quis turpis sed ante"
+      },
+      {
+        "username": "Eward Garbert",
+        "score": 4,
+        "comment": "est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi"
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "name": "Wireless Gaming Headset",
+    "description": "Comfortable headset with surround sound for immersive gaming.",
+    "price": 89.99,
+    "category": "Gaming",
+    "stock": 1,
+    "date": "9/22/2024",
+    "size": [
+      "medium",
+      "large",
+      "small"
+    ],
+    "color": [
+      "green"
+    ],
+    "reviews": [
+      {
+        "username": "Benoit Bicksteth",
+        "score": 5,
+        "comment": "aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat"
+      },
+      {
+        "username": "Jo-ann Guittet",
+        "score": 2,
+        "comment": "congue eget semper rutrum nulla nunc purus phasellus in felis donec"
+      }
+    ]
+  },
+  {
+    "id": 56,
+    "name": "Peach Green Tea",
+    "description": "Refreshing green tea infused with peach, perfect for a hot day.",
+    "price": 3.49,
+    "category": "Food - Beverages",
+    "stock": 38,
+    "date": "11/17/2024",
+    "size": [
+      "medium",
+      "large"
+    ],
+    "color": [
+      "black"
+    ],
+    "reviews": [
+      {
+        "username": "Rycca Amiable",
+        "score": 2,
+        "comment": "in porttitor pede justo eu massa donec dapibus duis at velit eu est congue"
+      },
+      {
+        "username": "Berkie Gress",
+        "score": 3,
+        "comment": "ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac"
+      },
+      {
+        "username": "Agace Whopples",
+        "score": 5,
+        "comment": "neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices"
+      }
+    ]
+  },
+  {
+    "id": 57,
+    "name": "DIY Candle Kit",
+    "description": "Everything you need to make your own scented candles at home.",
+    "price": 34.99,
+    "category": "Crafts",
+    "stock": 30,
+    "date": "1/7/2024",
+    "size": [
+      "medium",
+      "small"
+    ],
+    "color": [
+      "black",
+      "blue",
+      "green",
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Ulysses Bryer",
+        "score": 5,
+        "comment": "lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales"
+      },
+      {
+        "username": "Wally Ramiro",
+        "score": 1,
+        "comment": "consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus"
+      }
+    ]
+  },
+  {
+    "id": 58,
+    "name": "Almond Flour Biscuits",
+    "description": "Gluten-free biscuits made with almond flour.",
+    "price": 6.49,
+    "category": "Food - Bakery",
+    "stock": 21,
+    "date": "1/12/2024",
+    "size": [
+      "small",
+      "large"
+    ],
+    "color": [
+      "green",
+      "black",
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Susanne Jzhakov",
+        "score": 1,
+        "comment": "lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis"
+      },
+      {
+        "username": "Dorelia Camelin",
+        "score": 3,
+        "comment": "vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum"
+      },
+      {
+        "username": "Camey Wightman",
+        "score": 1,
+        "comment": "sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo"
+      }
+    ]
+  },
+  {
+    "id": 59,
+    "name": "Chocolate Fudge Brownie Mix",
+    "description": "Just add water for delicious brownies.",
+    "price": 2.99,
+    "category": "Food - Baking",
+    "stock": 31,
+    "date": "9/9/2024",
+    "size": [
+      "large"
+    ],
+    "color": [
+      "blue",
+      "white",
+      "black",
+      "green"
+    ],
+    "reviews": [
+      {
+        "username": "Ian Wile",
+        "score": 2,
+        "comment": "bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus"
+      }
+    ]
+  },
+  {
+    "id": 60,
+    "name": "Cauliflower Gnocchi",
+    "description": "Soft and pillowy gnocchi made from cauliflower, perfect with sauce.",
+    "price": 3.59,
+    "category": "Food - Frozen Foods",
+    "stock": 1,
+    "date": "12/13/2024",
+    "size": [
+      "small"
+    ],
+    "color": [
+      "blue",
+      "black",
+      "green"
+    ],
+    "reviews": [
+      {
+        "username": "Leila Goracci",
+        "score": 3,
+        "comment": "suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis"
+      }
+    ]
+  },
+  {
+    "id": 61,
+    "name": "Electric Blanket",
+    "description": "Extra soft electric blanket with adjustable heat settings.",
+    "price": 59.99,
+    "category": "Home",
+    "stock": 12,
+    "date": "3/19/2024",
+    "size": [
+      "medium"
+    ],
+    "color": [
+      "green"
+    ],
+    "reviews": [
+      {
+        "username": "Townsend Muldowney",
+        "score": 1,
+        "comment": "mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing"
+      }
+    ]
+  },
+  {
+    "id": 62,
+    "name": "Quinoa Salad",
+    "description": "A nutritious quinoa salad with veggies and dressing, ready-to-eat.",
+    "price": 5.99,
+    "category": "Food - Prepared Foods",
+    "stock": 16,
+    "date": "10/18/2024",
+    "size": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "color": [
+      "white",
+      "blue",
+      "black"
+    ],
+    "reviews": [
+      {
+        "username": "Paola Stormouth",
+        "score": 1,
+        "comment": "mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus"
+      },
+      {
+        "username": "Sayres Moult",
+        "score": 2,
+        "comment": "nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat"
+      }
+    ]
+  },
+  {
+    "id": 63,
+    "name": "Whisk Set",
+    "description": "Set of whisks in various sizes for cooking.",
+    "price": 12.99,
+    "category": "Kitchen",
+    "stock": 15,
+    "date": "3/24/2024",
+    "size": [
+      "small",
+      "large",
+      "medium"
+    ],
+    "color": [
+      "black"
+    ],
+    "reviews": [
+      {
+        "username": "Amye Smeeton",
+        "score": 1,
+        "comment": "magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt"
+      }
+    ]
+  },
+  {
+    "id": 64,
+    "name": "Pocket Blanket",
+    "description": "Compact, waterproof blanket for picnics and events.",
+    "price": 24.99,
+    "category": "Outdoor",
+    "stock": 0,
+    "date": "5/10/2024",
+    "size": [
+      "medium",
+      "large",
+      "small"
+    ],
+    "color": [
+      "blue",
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Onfroi Kew",
+        "score": 4,
+        "comment": "ante vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae duis faucibus accumsan"
+      }
+    ]
+  },
+  {
+    "id": 65,
+    "name": "Warm Wool Sweater",
+    "description": "Cozy wool sweater to keep you warm on chilly days.",
+    "price": 59.99,
+    "category": "Clothing - Tops",
+    "stock": 2,
+    "date": "4/1/2024",
+    "size": [
+      "small",
+      "medium"
+    ],
+    "color": [
+      "white",
+      "green",
+      "blue",
+      "black"
+    ],
+    "reviews": [
+      {
+        "username": "Pepi Portugal",
+        "score": 1,
+        "comment": "mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus"
+      },
+      {
+        "username": "Gannie d' Eye",
+        "score": 1,
+        "comment": "congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec"
+      }
+    ]
+  },
+  {
+    "id": 66,
+    "name": "Gardening Gloves with Claws",
+    "description": "Durable gloves with built-in claws for digging and planting.",
+    "price": 24.99,
+    "category": "Garden",
+    "stock": 32,
+    "date": "12/5/2024",
+    "size": [
+      "medium",
+      "small"
+    ],
+    "color": [
+      "white",
+      "green",
+      "black"
+    ],
+    "reviews": [
+      {
+        "username": "Virginia Rosenbaum",
+        "score": 2,
+        "comment": "odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis"
+      },
+      {
+        "username": "Arliene MacPhaden",
+        "score": 1,
+        "comment": "ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae"
+      }
+    ]
+  },
+  {
+    "id": 67,
+    "name": "Professional Chef Knife",
+    "description": "High-carbon stainless steel chef knife for precision cutting.",
+    "price": 89.99,
+    "category": "Kitchen",
+    "stock": 31,
+    "date": "11/5/2024",
+    "size": [
+      "medium",
+      "large"
+    ],
+    "color": [
+      "blue",
+      "black"
+    ],
+    "reviews": [
+      {
+        "username": "Nathaniel Bricksey",
+        "score": 4,
+        "comment": "consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum"
+      },
+      {
+        "username": "Marika Thomassin",
+        "score": 1,
+        "comment": "venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet"
+      }
+    ]
+  },
+  {
+    "id": 68,
+    "name": "Herb-Infused Olive Oil",
+    "description": "Premium olive oil infused with herbs for enhanced flavor.",
+    "price": 8.99,
+    "category": "Food - Oils",
+    "stock": 13,
+    "date": "1/13/2024",
+    "size": [
+      "small",
+      "medium"
+    ],
+    "color": [
+      "green",
+      "blue",
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Lethia Ramalhete",
+        "score": 2,
+        "comment": "neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet"
+      },
+      {
+        "username": "Hally O'Fairy",
+        "score": 2,
+        "comment": "sagittis nam congue risus semper porta volutpat quam pede lobortis"
+      },
+      {
+        "username": "Abdel Richardt",
+        "score": 4,
+        "comment": "sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium"
+      }
+    ]
+  },
+  {
+    "id": 69,
+    "name": "Vegetarian Pizza",
+    "description": "Frozen pizza loaded with vegetables and cheese.",
+    "price": 5.49,
+    "category": "Food - Frozen Foods",
+    "stock": 18,
+    "date": "3/3/2024",
+    "size": [
+      "medium",
+      "small",
+      "large"
+    ],
+    "color": [
+      "green",
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Dimitry Fawthorpe",
+        "score": 1,
+        "comment": "fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam"
+      },
+      {
+        "username": "Pearline Forson",
+        "score": 1,
+        "comment": "pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam"
+      }
+    ]
+  },
+  {
+    "id": 70,
+    "name": "Soft Plush Throw Blanket",
+    "description": "Cozy throw blanket perfect for chilly evenings.",
+    "price": 29.99,
+    "category": "Home",
+    "stock": 38,
+    "date": "1/17/2025",
+    "size": [
+      "medium"
+    ],
+    "color": [
+      "green",
+      "blue",
+      "black"
+    ],
+    "reviews": [
+      {
+        "username": "Hazlett Biasioni",
+        "score": 3,
+        "comment": "varius ut blandit non interdum in ante vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia"
+      },
+      {
+        "username": "Henka Ricoald",
+        "score": 3,
+        "comment": "ultrices mattis odio donec vitae nisi nam ultrices libero non"
+      }
+    ]
+  },
+  {
+    "id": 71,
+    "name": "Camping Lantern",
+    "description": "Rechargeable LED camping lantern for outdoor use.",
+    "price": 34.99,
+    "category": "Outdoor",
+    "stock": 4,
+    "date": "3/31/2025",
+    "size": [
+      "medium"
+    ],
+    "color": [
+      "blue",
+      "black",
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Sonia Postins",
+        "score": 4,
+        "comment": "volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante"
+      },
+      {
+        "username": "Amil Bevis",
+        "score": 3,
+        "comment": "sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed"
+      }
+    ]
+  },
+  {
+    "id": 72,
+    "name": "Sushi Roll Kit",
+    "description": "All ingredients needed to make your own sushi",
+    "price": 9.99,
+    "category": "Food - Cooking Kits",
+    "stock": 38,
+    "date": "1/12/2025",
+    "size": [
+      "medium",
+      "large",
+      "small"
+    ],
+    "color": [
+      "green"
+    ],
+    "reviews": [
+      {
+        "username": "Serene Kirsche",
+        "score": 1,
+        "comment": "sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus"
+      },
+      {
+        "username": "Esdras Wellstead",
+        "score": 4,
+        "comment": "orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis"
+      },
+      {
+        "username": "Ellerey Bales",
+        "score": 5,
+        "comment": "erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non"
+      }
+    ]
+  },
+  {
+    "id": 73,
+    "name": "Rechargeable Electric Toothbrush",
+    "description": "Advanced electric toothbrush for effective cleaning.",
+    "price": 49.99,
+    "category": "Health",
+    "stock": 24,
+    "date": "3/22/2025",
+    "size": [
+      "medium"
+    ],
+    "color": [
+      "white",
+      "blue",
+      "green",
+      "black"
+    ],
+    "reviews": [
+      {
+        "username": "Raffarty Fenton",
+        "score": 4,
+        "comment": "nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor"
+      }
+    ]
+  },
+  {
+    "id": 74,
+    "name": "Portable UV Sterilizer",
+    "description": "Compact sterilizer for disinfecting small items.",
+    "price": 19.99,
+    "category": "Health",
+    "stock": 20,
+    "date": "3/17/2025",
+    "size": [
+      "small"
+    ],
+    "color": [
+      "black",
+      "green"
+    ],
+    "reviews": [
+      {
+        "username": "Debor Heggman",
+        "score": 2,
+        "comment": "fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat"
+      },
+      {
+        "username": "Toddy Rowlstone",
+        "score": 1,
+        "comment": "ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus"
+      },
+      {
+        "username": "Marge Trehearn",
+        "score": 1,
+        "comment": "cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros"
+      }
+    ]
+  },
+  {
+    "id": 75,
+    "name": "Cable Knit Cardigan",
+    "description": "Cozy cable knit cardigan to layer during chilly evenings.",
+    "price": 49.99,
+    "category": "Clothing - Outerwear",
+    "stock": 39,
+    "date": "4/8/2025",
+    "size": [
+      "small",
+      "large",
+      "medium"
+    ],
+    "color": [
+      "black",
+      "blue"
+    ],
+    "reviews": [
+      {
+        "username": "Kort Copeman",
+        "score": 3,
+        "comment": "at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent"
+      }
+    ]
+  },
+  {
+    "id": 76,
+    "name": "Paprika",
+    "description": "Rich and sweet paprika spice for seasoning.",
+    "price": 1.79,
+    "category": "Food - Spices",
+    "stock": 31,
+    "date": "7/23/2024",
+    "size": [
+      "large"
+    ],
+    "color": [
+      "white",
+      "blue",
+      "green",
+      "black"
+    ],
+    "reviews": [
+      {
+        "username": "Meryl O'Boyle",
+        "score": 1,
+        "comment": "quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis"
+      }
+    ]
+  },
+  {
+    "id": 77,
+    "name": "Wireless Mouse",
+    "description": "Ergonomic wireless mouse with adjustable DPI.",
+    "price": 25.99,
+    "category": "Electronics",
+    "stock": 31,
+    "date": "12/6/2024",
+    "size": [
+      "large",
+      "small"
+    ],
+    "color": [
+      "blue"
+    ],
+    "reviews": [
+      {
+        "username": "Anica Ormes",
+        "score": 2,
+        "comment": "pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam"
+      },
+      {
+        "username": "Vernor Barus",
+        "score": 4,
+        "comment": "condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui"
+      },
+      {
+        "username": "Cyril Rayson",
+        "score": 1,
+        "comment": "donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat"
+      }
+    ]
+  },
+  {
+    "id": 78,
+    "name": "Vegetable Medley",
+    "description": "Mixed fresh vegetables for stir-frying or roasting.",
+    "price": 2.99,
+    "category": "Food - Produce",
+    "stock": 15,
+    "date": "3/29/2025",
+    "size": [
+      "small",
+      "medium"
+    ],
+    "color": [
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Jarid Costy",
+        "score": 1,
+        "comment": "sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et"
+      },
+      {
+        "username": "Hendrick Bann",
+        "score": 2,
+        "comment": "sit amet nulla quisque arcu libero rutrum ac lobortis vel dapibus at diam nam tristique tortor eu pede"
+      }
+    ]
+  },
+  {
+    "id": 79,
+    "name": "Creamy Garlic Dressing",
+    "description": "Rich and creamy dressing with garlic flavor, perfect for salads.",
+    "price": 3.99,
+    "category": "Food - Condiments",
+    "stock": 6,
+    "date": "2/1/2025",
+    "size": [
+      "large",
+      "small",
+      "medium"
+    ],
+    "color": [
+      "blue",
+      "green",
+      "black"
+    ],
+    "reviews": [
+      {
+        "username": "Stefanie Benedite",
+        "score": 2,
+        "comment": "erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy"
+      }
+    ]
+  },
+  {
+    "id": 80,
+    "name": "Potting Soil",
+    "description": "Premium potting soil for indoor plants.",
+    "price": 15.99,
+    "category": "Garden",
+    "stock": 20,
+    "date": "2/22/2024",
+    "size": [
+      "large",
+      "medium"
+    ],
+    "color": [
+      "green",
+      "white",
+      "blue"
+    ],
+    "reviews": [
+      {
+        "username": "Papagena Curnokk",
+        "score": 1,
+        "comment": "sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis"
+      },
+      {
+        "username": "Adiana Feaver",
+        "score": 1,
+        "comment": "ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet"
+      }
+    ]
+  },
+  {
+    "id": 81,
+    "name": "Hiking Gaiters",
+    "description": "Protective gaiters to keep dirt and debris out of shoes during hikes.",
+    "price": 29.99,
+    "category": "Outdoor",
+    "stock": 36,
+    "date": "1/3/2024",
+    "size": [
+      "large",
+      "small"
+    ],
+    "color": [
+      "green",
+      "blue",
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Zilvia Willoughby",
+        "score": 5,
+        "comment": "morbi non quam nec dui luctus rutrum nulla tellus in"
+      },
+      {
+        "username": "Angelico D'Ruel",
+        "score": 2,
+        "comment": "quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna"
+      }
+    ]
+  },
+  {
+    "id": 82,
+    "name": "Frozen Acai Bowl",
+    "description": "Healthy frozen acai bowl with toppings.",
+    "price": 6.49,
+    "category": "Food - Frozen Foods",
+    "stock": 18,
+    "date": "7/31/2024",
+    "size": [
+      "large",
+      "small",
+      "medium"
+    ],
+    "color": [
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Heinrick Orbine",
+        "score": 5,
+        "comment": "tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi"
+      },
+      {
+        "username": "Gare Leggate",
+        "score": 1,
+        "comment": "pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi"
+      },
+      {
+        "username": "Corny Humby",
+        "score": 2,
+        "comment": "morbi a ipsum integer a nibh in quis justo maecenas rhoncus"
+      }
+    ]
+  },
+  {
+    "id": 83,
+    "name": "Almond Flour Bread Mix",
+    "description": "Gluten-free bread mix made with almond flour.",
+    "price": 4.89,
+    "category": "Food - Baking",
+    "stock": 4,
+    "date": "4/7/2024",
+    "size": [
+      "large",
+      "small",
+      "medium"
+    ],
+    "color": [
+      "blue"
+    ],
+    "reviews": [
+      {
+        "username": "Gwynne Macveigh",
+        "score": 3,
+        "comment": "morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien"
+      }
+    ]
+  },
+  {
+    "id": 84,
+    "name": "Underwater Camera",
+    "description": "Waterproof camera for capturing underwater adventures.",
+    "price": 199.99,
+    "category": "Photography",
+    "stock": 37,
+    "date": "4/13/2024",
+    "size": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "color": [
+      "blue",
+      "green"
+    ],
+    "reviews": [
+      {
+        "username": "Gerek Mingasson",
+        "score": 4,
+        "comment": "pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum"
+      }
+    ]
+  },
+  {
+    "id": 85,
+    "name": "Organic Quinoa Salad",
+    "description": "A refreshing salad made with quinoa and seasonal veggies.",
+    "price": 5.99,
+    "category": "Food - Prepared Meals",
+    "stock": 15,
+    "date": "8/18/2024",
+    "size": [
+      "medium",
+      "large",
+      "small"
+    ],
+    "color": [
+      "black",
+      "blue",
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Alix Cessford",
+        "score": 3,
+        "comment": "in libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt"
+      },
+      {
+        "username": "Hedy Pickburn",
+        "score": 5,
+        "comment": "eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu"
+      },
+      {
+        "username": "Phylis Dafter",
+        "score": 2,
+        "comment": "magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus"
+      }
+    ]
+  },
+  {
+    "id": 86,
+    "name": "Fresh Strawberries",
+    "description": "Sweet and juicy strawberries, perfect for desserts.",
+    "price": 3.99,
+    "category": "Food - Produce",
+    "stock": 16,
+    "date": "1/17/2024",
+    "size": [
+      "small",
+      "medium"
+    ],
+    "color": [
+      "green",
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Terese Bagehot",
+        "score": 4,
+        "comment": "pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut"
+      },
+      {
+        "username": "Guilbert Minghetti",
+        "score": 3,
+        "comment": "id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras"
+      }
+    ]
+  },
+  {
+    "id": 87,
+    "name": "Acoustic Guitar",
+    "description": "Beginner-friendly acoustic guitar with natural finish.",
+    "price": 199.99,
+    "category": "Music",
+    "stock": 17,
+    "date": "2/4/2025",
+    "size": [
+      "medium",
+      "large"
+    ],
+    "color": [
+      "white",
+      "green",
+      "blue"
+    ],
+    "reviews": [
+      {
+        "username": "Shepherd Elger",
+        "score": 3,
+        "comment": "tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit"
+      }
+    ]
+  },
+  {
+    "id": 88,
+    "name": "Chicken Broth",
+    "description": "Rich and flavorful chicken broth, great for soups.",
+    "price": 2.49,
+    "category": "Food - Canned Goods",
+    "stock": 35,
+    "date": "5/26/2024",
+    "size": [
+      "medium",
+      "large"
+    ],
+    "color": [
+      "blue",
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Shannan Murrells",
+        "score": 3,
+        "comment": "ligula in lacus curabitur at ipsum ac tellus semper interdum mauris"
+      }
+    ]
+  },
+  {
+    "id": 89,
+    "name": "Himalayan Pink Salt",
+    "description": "Natural mineral salt with a subtle flavor, ideal for cooking and seasoning.",
+    "price": 1.99,
+    "category": "Food - Condiments",
+    "stock": 25,
+    "date": "8/27/2024",
+    "size": [
+      "large",
+      "medium"
+    ],
+    "color": [
+      "green",
+      "black",
+      "white",
+      "blue"
+    ],
+    "reviews": [
+      {
+        "username": "Glori Chaudrelle",
+        "score": 4,
+        "comment": "aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia"
+      },
+      {
+        "username": "Pincus Seemmonds",
+        "score": 5,
+        "comment": "porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in"
+      },
+      {
+        "username": "Clea Picopp",
+        "score": 3,
+        "comment": "varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla"
+      }
+    ]
+  },
+  {
+    "id": 90,
+    "name": "Thai Green Curry Paste",
+    "description": "A rich curry paste for making authentic Thai green curry at home.",
+    "price": 2.49,
+    "category": "Food - Sauces",
+    "stock": 16,
+    "date": "12/14/2024",
+    "size": [
+      "small"
+    ],
+    "color": [
+      "black",
+      "blue"
+    ],
+    "reviews": [
+      {
+        "username": "Xymenes Darkin",
+        "score": 4,
+        "comment": "erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer"
+      },
+      {
+        "username": "Ramsay Burberow",
+        "score": 4,
+        "comment": "enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa"
+      }
+    ]
+  },
+  {
+    "id": 91,
+    "name": "Electric Fondue Pot",
+    "description": "Set for making fondue at home.",
+    "price": 39.99,
+    "category": "Kitchen",
+    "stock": 4,
+    "date": "3/5/2024",
+    "size": [
+      "large"
+    ],
+    "color": [
+      "green",
+      "black",
+      "blue",
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Mycah Vernalls",
+        "score": 5,
+        "comment": "pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis"
+      },
+      {
+        "username": "Pennie Dalliwater",
+        "score": 4,
+        "comment": "potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi"
+      }
+    ]
+  },
+  {
+    "id": 92,
+    "name": "Basic V-Neck T-Shirt",
+    "description": "A staple v-neck t-shirt that pairs well with anything.",
+    "price": 19.99,
+    "category": "Clothing - Tops",
+    "stock": 18,
+    "date": "2/28/2024",
+    "size": [
+      "small"
+    ],
+    "color": [
+      "blue",
+      "green"
+    ],
+    "reviews": [
+      {
+        "username": "Eddi Ing",
+        "score": 3,
+        "comment": "morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh"
+      },
+      {
+        "username": "Elane Tollerfield",
+        "score": 4,
+        "comment": "dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien"
+      }
+    ]
+  },
+  {
+    "id": 93,
+    "name": "Body Pillow Case",
+    "description": "Soft and breathable pillowcase for body pillows.",
+    "price": 14.99,
+    "category": "Home",
+    "stock": 13,
+    "date": "8/3/2024",
+    "size": [
+      "large",
+      "small",
+      "medium"
+    ],
+    "color": [
+      "blue"
+    ],
+    "reviews": [
+      {
+        "username": "Gusti Yapp",
+        "score": 2,
+        "comment": "risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis"
+      },
+      {
+        "username": "Daveta Bunson",
+        "score": 4,
+        "comment": "suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra"
+      },
+      {
+        "username": "Timmy Bruty",
+        "score": 3,
+        "comment": "mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam"
+      }
+    ]
+  },
+  {
+    "id": 94,
+    "name": "Wine Decanter",
+    "description": "Elegant glass decanter for aerating wine.",
+    "price": 34.99,
+    "category": "Home",
+    "stock": 2,
+    "date": "8/20/2024",
+    "size": [
+      "medium"
+    ],
+    "color": [
+      "green"
+    ],
+    "reviews": [
+      {
+        "username": "Josephine Coldridge",
+        "score": 4,
+        "comment": "duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede"
+      },
+      {
+        "username": "Calypso Blockey",
+        "score": 3,
+        "comment": "turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit"
+      },
+      {
+        "username": "Hernando Peterkin",
+        "score": 5,
+        "comment": "quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum"
+      }
+    ]
+  },
+  {
+    "id": 95,
+    "name": "Kids' Educational Tablet",
+    "description": "Learning tablet with kid-friendly educational apps.",
+    "price": 129.99,
+    "category": "Electronics",
+    "stock": 3,
+    "date": "3/28/2025",
+    "size": [
+      "large"
+    ],
+    "color": [
+      "white",
+      "green",
+      "blue"
+    ],
+    "reviews": [
+      {
+        "username": "Penni Lillicrop",
+        "score": 4,
+        "comment": "neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros"
+      },
+      {
+        "username": "Ema Simmens",
+        "score": 1,
+        "comment": "eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis"
+      },
+      {
+        "username": "Anneliese Prior",
+        "score": 2,
+        "comment": "morbi ut odio cras mi pede malesuada in imperdiet et commodo"
+      }
+    ]
+  },
+  {
+    "id": 96,
+    "name": "Toy Building Set",
+    "description": "Creative building set for kids to spark imagination.",
+    "price": 29.99,
+    "category": "Toys",
+    "stock": 30,
+    "date": "11/3/2024",
+    "size": [
+      "small",
+      "medium"
+    ],
+    "color": [
+      "black",
+      "white",
+      "green",
+      "blue"
+    ],
+    "reviews": [
+      {
+        "username": "Dorthy Sweatland",
+        "score": 5,
+        "comment": "orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet"
+      },
+      {
+        "username": "Halsy Folomin",
+        "score": 2,
+        "comment": "proin at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum"
+      },
+      {
+        "username": "Merrill Lillgard",
+        "score": 1,
+        "comment": "sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla"
+      }
+    ]
+  },
+  {
+    "id": 97,
+    "name": "Cinnamon Raisin Bread",
+    "description": "Sweet bread with cinnamon and raisins, great for breakfast or snacks.",
+    "price": 3.79,
+    "category": "Food - Bakery",
+    "stock": 34,
+    "date": "1/27/2024",
+    "size": [
+      "large",
+      "medium"
+    ],
+    "color": [
+      "black",
+      "green",
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Sonya O'Sheerin",
+        "score": 5,
+        "comment": "lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in"
+      },
+      {
+        "username": "Wayne McCrorie",
+        "score": 5,
+        "comment": "et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque"
+      },
+      {
+        "username": "Minnaminnie Brabbins",
+        "score": 1,
+        "comment": "neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit"
+      }
+    ]
+  },
+  {
+    "id": 98,
+    "name": "Carrot and Celery Sticks",
+    "description": "Fresh pre-cut carrot and celery sticks for easy snacking.",
+    "price": 2.99,
+    "category": "Food - Produce",
+    "stock": 9,
+    "date": "1/9/2025",
+    "size": [
+      "large",
+      "small"
+    ],
+    "color": [
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Leonerd MacGee",
+        "score": 5,
+        "comment": "sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est"
+      },
+      {
+        "username": "Piper Adelberg",
+        "score": 3,
+        "comment": "tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam"
+      }
+    ]
+  },
+  {
+    "id": 99,
+    "name": "Multi-Purpose Plant Care Tool",
+    "description": "All-in-one tool for measuring soil moisture, light, and pH.",
+    "price": 24.99,
+    "category": "Garden",
+    "stock": 24,
+    "date": "3/23/2024",
+    "size": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "color": [
+      "blue",
+      "green",
+      "white"
+    ],
+    "reviews": [
+      {
+        "username": "Trevor Stang-Gjertsen",
+        "score": 3,
+        "comment": "iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate"
+      }
+    ]
+  },
+  {
+    "id": 100,
+    "name": "Personalized Cutting Board",
+    "description": "Custom cutting board made from high-quality wood.",
+    "price": 34.99,
+    "category": "Kitchen",
+    "stock": 12,
+    "date": "12/24/2024",
+    "size": [
+      "medium",
+      "small",
+      "large"
+    ],
+    "color": [
+      "white",
+      "black",
+      "blue"
+    ],
+    "reviews": [
+      {
+        "username": "Lilith Vondrasek",
+        "score": 5,
+        "comment": "mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum"
+      }
+    ]
+  }
+]
