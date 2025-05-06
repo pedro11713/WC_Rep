@@ -1,11 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
 import './styles/styles.css'
 import PagInicialTogether from "./components/PagInicial/PagInicialTogether";
+import PagProduto from "./components/PagProduto/PagProduto";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 function App() {
     return (
         <div className="App">
-           <PagInicialTogether />
+            <Router>
+                <Routes>
+                    <Route path="/" element={<PagInicialTogether />} />
+                    <Route path="/produto/:id" element={<PagProduto />} />
+                </Routes>
+            </Router>
         </div>
     );
 }
