@@ -1,20 +1,38 @@
-import React from 'react';
-
-const products = [
-  { id: 1, name: 'Produto A', price: '€10' },
-  { id: 2, name: 'Produto B', price: '€20' },
-  { id: 3, name: 'Produto C', price: '€15' },
-];
+import React, { useState, useEffect } from 'react';
 
 function TopProducts() {
+  const [topProducts, setTopProducts] = useState([]);
+
+  useEffect(() => {
+    fetch('/data/products.json') // Certifique-se de que este ficheiro está em public/data
+      .then(response => response.json())
+      .then(data => {
+        // Calcular média de avaliação para cada produto
+        const productsWithRatings = data.map(product => {
+          const totalScore = product.reviews.reduce((sum, review) => sum + review.score, 0);
+          const avgScore = product.reviews.length > 0 ? totalScore / product.reviews.length : 0;
+          return { ...product, avgScore };
+        });
+
+        // Ordenar por média de avaliação (descendente) e pegar os top 3
+        const topRated = productsWithRatings
+          .sort((a, b) => b.avgScore - a.avgScore)
+          .slice(0, 3);
+
+        setTopProducts(topRated);
+      });
+  }, []);
+
   return (
     <div className="top-products">
-      <h2>Produtos em Destaque</h2>
+      <h2>Top Produtos (Melhor Avaliados)</h2>
       <div className="product-list">
-        {products.map((product) => (
+        {topProducts.map(product => (
           <div className="product" key={product.id}>
             <h3>{product.name}</h3>
-            <p>{product.price}</p>
+            <p>€{product.price.toFixed(2)}</p>
+            <p>{product.category}</p>
+            <p><strong>Avaliação Média:</strong> {product.avgScore.toFixed(1)} ⭐</p>
           </div>
         ))}
       </div>
