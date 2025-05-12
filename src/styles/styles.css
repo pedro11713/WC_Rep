@@ -3,12 +3,23 @@
     font-family: Arial, sans-serif;
 }
 
+
 .banner {
-    background-color: #007bff;
-    color: white;
-    padding: 40px;
-    text-align: center;
+  height: 300px;
+  background-image: url('../assets/banner.jpg'); /* caminho da imagem */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
 }
+
+.banner-content {
+  text-align: center;
+}
+
 
 .search-bar {
     margin: 20px 0;
@@ -45,4 +56,56 @@
     padding: 15px;
     width: 200px;
     background-color: #f9f9f9;
+}
+
+.product-page {
+  padding: 20px;
+}
+
+.filters {
+  margin-bottom: 20px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  text-align: center;
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.product-page {
+  padding: 20px;
+}
+
+.filters {
+  margin-bottom: 20px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  text-align: center;
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
 }

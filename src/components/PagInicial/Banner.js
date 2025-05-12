@@ -1,12 +1,16 @@
+// components/Banner.js
 import React from 'react';
+import '../../styles/styles.css';
 
 function Banner() {
-    return (
-        <div className="banner">
-            <h1>Bem-vindo à nossa loja!</h1>
-            <p>Os melhores produtos ao seu alcance.</p>
-        </div>
-    );
+  return (
+    <div className="banner">
+      <div className="banner-content">
+        <h1>Bem-vindo à nossa loja!</h1>
+        <p>Descubra os melhores produtos com avaliações incríveis.</p>
+      </div>
+    </div>
+  );
 }
 
 export default Banner;
