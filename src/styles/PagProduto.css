@@ -1,0 +1,148 @@
+.pag-produto-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #fafbfc;
+  box-shadow: 0 3px 16px rgba(100,120,160,0.10);
+  border-radius: 12px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.produto-card {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 32px;
+}
+
+.produto-img-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 180px;
+}
+
+.produto-imagem-placeholder {
+  width: 180px;
+  height: 180px;
+  background: #dde4ea;
+  border-radius: 12px;
+  color: #454545;
+  font-size: 2.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: italic;
+}
+
+.produto-info-box {
+  flex: 2;
+}
+
+.produto-nome {
+  font-size: 2em;
+  margin-bottom: 8px;
+}
+
+.produto-descricao {
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.produto-categoria, .produto-preco, .produto-stock {
+  margin-bottom: 7px;
+  color: #31507a;
+}
+
+.produto-opcoes label {
+  margin-right: 18px;
+}
+
+.produto-opcoes select {
+  margin-left: 5px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  border: 1px solid #bdd4ee;
+}
+
+.produto-acoes {
+  margin-top: 20px;
+  display: flex;
+  gap: 16px;
+}
+
+.btn {
+  padding: 9px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  font-size: 1em;
+  transition: all 0.18s;
+}
+
+.btn-favoritos {
+  background: #e5e7fa;
+  color: #345eaf;
+}
+
+.btn-carrinho {
+  background: #48bc7f;
+  color: #fff;
+}
+.btn:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 1px 8px #b3bff344;
+}
+
+.produto-reviews-box {
+  margin-top: 26px;
+  border-top: 1px solid #e6e6e6;
+  padding-top: 16px;
+}
+
+.produto-reviews-list {
+  list-style: none;
+  padding-left: 0;
+}
+.produto-review {
+  margin-bottom: 16px;
+  background: #f1f5fb;
+  padding: 12px;
+  border-radius: 7px;
+}
+.produto-review-score {
+  margin-left: 9px;
+  color: #faad1d;
+}
+
+.produtos-semelhantes-box {
+  margin-top: 28px;
+  border-top: 1px solid #e6e6e6;
+  padding-top: 16px;
+}
+
+.produtos-semelhantes-list {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.produtos-semelhantes-list a {
+  color: #306ecc;
+  text-decoration: none;
+  font-weight: 500;
+}
+.produtos-semelhantes-list a:hover {
+  text-decoration: underline;
+}
+
+.produto-nao-encontrado {
+  text-align: center;
+  color: #bc2323;
+  margin-top: 60px;
+  font-size: 1.5em;
+}
