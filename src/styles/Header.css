@@ -4,12 +4,12 @@
   align-items: center;
   background-color: #345eaf;
   color: white;
-  padding: 15px 30px;
+  padding: 5px 20px;
   font-family: Arial, sans-serif;
 }
 
 .logo-img {
-  height: 40px; /* ajusta conforme necessário */
+  height: 90px; /* ajusta conforme necessário */
   object-fit: contain;
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/Header.css';
-import Logo from '../assets/img.jpg';
+import Logo from '../assets/img.png';
 
 function Header() {
     return (
@@ -18,7 +18,6 @@ function Header() {
             </nav>
             <div className="cart">
                  <a href="/carrinho"> 🛒 </a>
-                <div className="cart-count">1</div>
             </div>
         </header>
     );
