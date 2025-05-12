@@ -1,18 +1,19 @@
 // components/PagProdutos/ProductList.js
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import productsData from '../../products.json'; // caminho relativo correto
+import { useLocation, Link } from 'react-router-dom';
+import productsData from '../../products.json';
+import "../../styles/ProductList.css";
+import SearchBar from '../PagInicial/SearchBar';
 
 function ProductList() {
-  const [products, setProducts] = useState([]);
-  const [sortOption, setSortOption] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 6;
-
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const search = queryParams.get('search')?.toLowerCase() || '';
   const filter = queryParams.get('filter') || 'Título';
+  const [products, setProducts] = useState([]);
+  const [sortOption, setSortOption] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 6;
 
   useEffect(() => {
     let filtered = productsData;
@@ -48,23 +49,22 @@ function ProductList() {
   return (
     <div className="product-page">
       <h2>Todos os Produtos</h2>
-
-      <div className="filters">
-        <label>Ordenar por: </label>
-        <select value={sortOption} onChange={e => setSortOption(e.target.value)}>
-          <option value="">Nenhum</option>
-          <option value="Preço">Preço</option>
-          <option value="Rating">Rating</option>
-        </select>
-      </div>
+      <SearchBar />
 
       <div className="product-grid">
         {displayedProducts.map(product => (
-          <div className="product-card" key={product.id}>
-            <h3>{product.name}</h3>
-            <p>{product.category}</p>
-            <p>€{product.price.toFixed(2)}</p>
-          </div>
+          <Link
+            key={product.id}
+            to={`/produto/${product.id}`}
+            className="product-card-link"
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
+            <div className="product-card">
+              <h3>{product.name}</h3>
+              <p>{product.category}</p>
+              <p>€{product.price.toFixed(2)}</p>
+            </div>
+          </Link>
         ))}
       </div>
 

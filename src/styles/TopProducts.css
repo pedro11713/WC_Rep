@@ -1,0 +1,36 @@
+.top-products {
+  text-align: center;
+  margin: 40px auto;
+}
+
+.top-products .product-list {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.product-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.top-products .product {
+  width: 250px;
+  height: 280px;
+  border: 1px solid #ccc;
+  padding: 15px;
+  background-color: #fdfdfd;
+  border-radius: 8px;
+  transition: box-shadow 0.2s ease;
+}
+
+.top-products .product:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.top-products .product h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}

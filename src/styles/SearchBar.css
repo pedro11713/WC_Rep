@@ -20,6 +20,17 @@
   border-radius: 4px;
 }
 
+.enter-button {
+  margin-left: 10px;
+  padding: 10px;
+  background-color: #ddd;
+  cursor: pointer;
+  position: relative;
+  border-radius: 4px;
+}
+
+
+
 .filter-menu {
   position: absolute;
   top: 45px;
@@ -41,4 +52,10 @@
 
 .filter-menu li:hover {
   background-color: #f0f0f0;
+}
+.filter-button :hover {
+  background-color: #bbb; /* Um tom ligeiramente mais escuro */
+}
+.enter-button :hover {
+  background-color: #bbb; /* Um tom ligeiramente mais escuro */
 }
