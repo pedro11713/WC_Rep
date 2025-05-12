@@ -4,28 +4,18 @@ import React, { createContext, useState } from 'react';
 export const FavoriteContext = createContext();
 
 function FavoriteProvider(props) {
-  const [favoriteItems, setFavoriteItems] = useState([
-  {
-    id: 1,
-    name: "Faux Fur Coat",
-    price: 129.99,
-    image: "/images/faux-fur-coat.jpg"
-  },
-    {
-      id: 2,
-      name: "Denim Jacket",
-      price: 89.99,
-      image: "/images/denim-jacket.jpg"
-    }]);
-
+  const [favoriteItems, setFavoriteItems] = useState([]);
 
   function addToFavorites(item) {
-    setFavoriteItems((prevItems) => {
-      const exists = prevItems.find((i) => i.id === item.id);
-      if (exists) return prevItems;
-      return [...prevItems, item];
-    });
-  }
+  setFavoriteItems((prevItems) => {
+    const exists = prevItems.find((i) => i.id === item.id);
+    if (exists) return prevItems;
+    const updated = [...prevItems, item];
+    console.log("Favoritos atualizados:", updated); // <----
+    return updated;
+  });
+}
+
 
   function removeFromFavorites(id) {
     setFavoriteItems((prevItems) =>

@@ -4,15 +4,7 @@ export const CartContext = createContext();
 
 function CartProvider(props) {
   const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      name: 'Faux Fur Coat',
-      price: 129.99,
-      image: '/images/faux-fur-coat.jpg',
-      quantity: 1,
-      size: 'medium',
-      color: 'black'
-    }
+
   ]);
 
   function addToCart(item) {

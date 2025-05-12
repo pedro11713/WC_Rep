@@ -35,22 +35,6 @@ function CartItem(props) {
         </div>
 
         <div className="item-actions">
-          <button
-            className="wishlist-button"
-            onClick={function () {
-              addToFavorites({
-                id: 2,
-                name: "Produto Teste",
-                price: 99.99,
-                image: "",
-                size: "M",
-                color: "red"
-              });
-
-            }}
-          >
-            Move to Wishlist
-          </button>
 
           <button
             className="remove-button"

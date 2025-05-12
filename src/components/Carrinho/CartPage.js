@@ -5,11 +5,9 @@ import FavoriteProvider from "../Favoritos/FavoriteContext";
 
 function CartPage() {
   return (
-    <CartProvider>
-        <FavoriteProvider>
+
             <CartContent />
-        </FavoriteProvider>
-    </CartProvider>
+
   );
 }
 
