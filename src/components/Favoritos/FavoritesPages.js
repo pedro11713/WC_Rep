@@ -1,5 +1,6 @@
 // src/pages/FavoritesPage.js
 import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom'; // ✅ necessário para redirecionar
 import '../../styles/Favoritestyles.css';
 import { FavoriteContext } from './FavoriteContext';
 import { CartContext } from '../Carrinho/CartContext';
@@ -7,8 +8,7 @@ import { CartContext } from '../Carrinho/CartContext';
 function FavoritesPage() {
   const { favoriteItems, removeFromFavorites } = useContext(FavoriteContext);
   const { addToCart } = useContext(CartContext);
-
-  console.log("Itens favoritos no contexto:", favoriteItems);
+  const navigate = useNavigate(); // ✅ inicializa o hook de navegação
 
   return (
     <div className="favorite-page">
@@ -23,26 +23,40 @@ function FavoritesPage() {
           ) : (
             favoriteItems.map((item) => (
               <div key={item.id} className="favorite-card">
-                <img src={item.image} alt={item.name} />
+                {/* Imagem */}
+                <div className="favorite-img-placeholder">
+                  <span>Imagem</span>
+                </div>
+
+                {/* Informações do produto */}
                 <div className="favorite-info">
                   <h3>{item.name}</h3>
-                  <p>€{item.price}</p>
+                  <p>€{item.price.toFixed(2)}</p>
                 </div>
-                <button
-                  className="heart-button active"
-                  onClick={() => removeFromFavorites(item.id)}
-                >
-                  ❤
-                </button>
-                <button
-                  className="add-to-cart-button"
-                  onClick={() => {
-                    addToCart(item);
-                    removeFromFavorites(item.id);
-                  }}
-                >
-                  Add to cart
-                </button>
+
+                {/* Botões */}
+                <div className="favorite-actions">
+                  <button
+                    className="heart-button active"
+                    onClick={() => removeFromFavorites(item.id)}
+                  >
+                    ❤
+                  </button>
+                  <button
+                    className="add-to-cart-button"
+                    onClick={() => {
+                      const itemComOpcoes = {
+                        ...item,
+                        size: item.size?.[0] || "default",
+                        color: item.color?.[0] || "default",
+                      };
+                      addToCart(itemComOpcoes);
+                      navigate("/carrinho");
+                    }}
+                  >
+                    Add to cart
+                  </button>
+                </div>
               </div>
             ))
           )}
@@ -53,4 +67,3 @@ function FavoritesPage() {
 }
 
 export default FavoritesPage;
-
