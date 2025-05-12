@@ -1,28 +1,33 @@
-import React, { useState } from "react";
+// src/pages/PagProduto.js
+import React, { useState, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
+import { FavoriteContext } from "../Favoritos/FavoriteContext";
 import products from "../../products.json";
 import "../../styles/PagProduto.css";
 
 function PagProduto() {
   const { id } = useParams();
-  const produto = products.find(p => String(p.id) === String(id));
+  const produto = products.find((p) => String(p.id) === String(id));
   const [tamanho, setTamanho] = useState(produto?.size?.[0] || "");
   const [cor, setCor] = useState(produto?.color?.[0] || "");
+  const { addToFavorites } = useContext(FavoriteContext);
 
   if (!produto) return <div className="produto-nao-encontrado">Produto não encontrado!</div>;
 
   const semelhantes = products.filter(
-    p => p.category === produto.category && String(p.id) !== String(id)
+    (p) => p.category === produto.category && String(p.id) !== String(id)
   );
+
+  function handleFavoritar() {
+    addToFavorites(produto);
+    alert("Adicionado aos favoritos!");
+  }
 
   return (
     <div className="pag-produto-container">
       <div className="produto-card">
-        {/* imagem do produto, se tiveres */}
         <div className="produto-img-box">
-          {/* <img src={produto.imagem} alt={produto.name}/> */}
           <div className="produto-imagem-placeholder">
-            {/* Se não tiver imagem real */}
             <span>Imagem</span>
           </div>
         </div>
@@ -51,7 +56,7 @@ function PagProduto() {
             </label>
           </div>
           <div className="produto-acoes">
-            <button className="btn btn-favoritos" onClick={() => alert('Adicionado aos favoritos!')}>❤ Favorito</button>
+            <button className="btn btn-favoritos" onClick={handleFavoritar}>❤ Favorito</button>
             <button className="btn btn-carrinho" onClick={() => alert('Adicionado ao carrinho!')}>🛒 Carrinho</button>
           </div>
         </div>
@@ -64,7 +69,7 @@ function PagProduto() {
             <li key={idx} className="produto-review">
               <div>
                 <b>{r.username}</b>
-                <span className="produto-review-score">{'★'.repeat(r.score)}{'☆'.repeat(5-r.score)}</span>
+                <span className="produto-review-score">{'★'.repeat(r.score)}{'☆'.repeat(5 - r.score)}</span>
               </div>
               <div>{r.comment}</div>
             </li>
