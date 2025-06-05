@@ -1,69 +1,70 @@
-// src/pages/FavoritesPage.js
-import React, { useContext } from 'react';
-import { useNavigate } from 'react-router-dom'; // ✅ necessário para redirecionar
-import '../../styles/Favoritestyles.css';
-import { FavoriteContext } from './FavoriteContext';
-import { CartContext } from '../Carrinho/CartContext';
+import React, { useEffect, useState } from "react";
 
-function FavoritesPage() {
-  const { favoriteItems, removeFromFavorites } = useContext(FavoriteContext);
-  const { addToCart } = useContext(CartContext);
-  const navigate = useNavigate(); // ✅ inicializa o hook de navegação
+const FavoritesPages = () => {
+  const [favorites, setFavorites] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const userId = "guest"; // ou outro id, se estiver autenticado
+
+  useEffect(() => {
+    async function fetchFavorites() {
+      try {
+        const res = await fetch(`http://localhost:5000/api/v1/favoritos?userId=${userId}`);
+        const data = await res.json();
+        setFavorites(data || []); // Supondo que a API retorna lista direta
+      } catch (err) {
+        console.error("Erro ao buscar favoritos:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchFavorites();
+  }, [userId]);
+
+  const handleRemoveFavorite = async (productId) => {
+    try {
+      const res = await fetch(`http://localhost:5000/api/v1/favoritos`, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userId, productId }),
+      });
+
+      if (res.ok) {
+        setFavorites((prev) => prev.filter((item) => item._id !== productId));
+      } else {
+        console.error("Erro ao remover favorito");
+      }
+    } catch (err) {
+      console.error("Erro:", err);
+    }
+  };
+
+  if (loading) return <p>A carregar favoritos...</p>;
+  if (favorites.length === 0) return <p>Não tens favoritos guardados.</p>;
 
   return (
-    <div className="favorite-page">
-      <header className="favorite-header">
-        <h2>My Favorites</h2>
-      </header>
-
-      <main className="favorite-main">
-        <section className="favorite-items">
-          {favoriteItems.length === 0 ? (
-            <p>You have no favorite items yet.</p>
-          ) : (
-            favoriteItems.map((item) => (
-              <div key={item.id} className="favorite-card">
-                {/* Imagem */}
-                <div className="favorite-img-placeholder">
-                  <span>Imagem</span>
-                </div>
-
-                {/* Informações do produto */}
-                <div className="favorite-info">
-                  <h3>{item.name}</h3>
-                  <p>€{item.price.toFixed(2)}</p>
-                </div>
-
-                {/* Botões */}
-                <div className="favorite-actions">
-                  <button
-                    className="heart-button active"
-                    onClick={() => removeFromFavorites(item.id)}
-                  >
-                    ❤
-                  </button>
-                  <button
-                    className="add-to-cart-button"
-                    onClick={() => {
-                      const itemComOpcoes = {
-                        ...item,
-                        size: item.size?.[0] || "default",
-                        color: item.color?.[0] || "default",
-                      };
-                      addToCart(itemComOpcoes);
-                      navigate("/carrinho");
-                    }}
-                  >
-                    Add to cart
-                  </button>
-                </div>
-              </div>
-            ))
-          )}
-        </section>
-      </main>
+    <div className="p-6">
+      <h1 className="text-2xl font-semibold mb-4">Os teus Favoritos</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {favorites.map((product) => (
+          <div
+            key={product._id}
+            className="border rounded-xl p-4 shadow hover:shadow-lg transition"
+          >
+            <h2 className="text-lg font-bold">{product.name}</h2>
+            <p>{product.description}</p>
+            <p className="text-green-600 font-semibold mt-2">{product.price}€</p>
+            <button
+              className="mt-3 bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+              onClick={() => handleRemoveFavorite(product._id)}
+            >
+              Remover
+            </button>
+          </div>
+        ))}
+      </div>
     </div>
   );
-}
+};
 
-export default FavoritesPage;
+export default FavoritesPages;

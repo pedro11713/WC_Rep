@@ -2,28 +2,36 @@ import json
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from pymongo import MongoClient
-from bson.objectid import ObjectId
+# from bson.objectid import ObjectId
 import bcrypt
 import jwt
 import datetime
 
+# import jwt
+from datetime import datetime, timedelta
+from functools import wraps
+from bson import ObjectId
+
 app = Flask(__name__)
 CORS(app)
 
+app.config['SECRET_KEY'] = 'SEGREDO'
+
 # Configurações
 MONGODB_CONECTION_STRING = 'mongodb+srv://PedroS:1234@projeto.xmqgvuu.mongodb.net/?retryWrites=true&w=majority&appName=Projeto'
-SECRET_KEY = "segredo_super_secreto"  # Para JWT
+# SECRET_KEY = "segredo_super_secreto"  # Para JWT
 
 client = MongoClient(MONGODB_CONECTION_STRING, tls=True, tlsAllowInvalidCertificates=True)
 db = client["Projeto"]
 products_collection = db["Produtos"]
 users_collection = db["Users"]
 cart_collection = db["Carrinho"]
+favorites_collection = db["Favoritos"]
 
 # ===============================
 # Helper Functions
 # ===============================
-
+'''
 def token_required(f):
     def decorated(*args, **kwargs):
         token = request.headers.get('Authorization')
@@ -36,6 +44,34 @@ def token_required(f):
         return f(*args, **kwargs)
     decorated.__name__ = f.__name__
     return decorated
+'''
+
+
+def token_required(func):
+    @wraps(func)
+    def decorated(*args, **kwargs):
+
+        token = request.args.get('token')
+        if not token:
+               return jsonify({'message': 'Token is missing!'}), 401
+        try:
+               data = jwt.decode(token, app.config["SECRET_KEY"], algorithms=["HS256"])
+        except jwt.ExpiredSignatureError:
+           return jsonify({'expirado': True}), 401
+
+        return func(*args, **kwargs)
+    return decorated
+
+
+@app.errorhandler(Exception)
+def handle_error(e):
+    return jsonify({"error": str(e)}), 500
+
+
+def get_user_id():
+    user_id = request.args.get("userId") or request.json.get("userId")
+    return user_id if user_id else "user_guest"
+
 
 # ===============================
 # Produtos
@@ -58,6 +94,7 @@ def get_products():
         "total": total
     })
 
+
 @app.route("/api/v1/products/<int:product_id>", methods=["GET"])
 def get_product(product_id):
     try:
@@ -70,6 +107,7 @@ def get_product(product_id):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+
 @app.route("/api/v1/products/<int:product_id>", methods=["DELETE"])
 @token_required
 def delete_product(product_id):
@@ -77,6 +115,7 @@ def delete_product(product_id):
     if result.deleted_count == 0:
         return jsonify({"error": "Produto não encontrado"}), 404
     return jsonify({"message": "Produto removido com sucesso"}), 200
+
 
 @app.route("/api/v1/products/<int:product_id>", methods=["PUT"])
 @token_required
@@ -86,6 +125,7 @@ def update_product(product_id):
     if result.matched_count == 0:
         return jsonify({"error": "Produto não encontrado"}), 404
     return jsonify({"message": "Produto atualizado com sucesso"}), 200
+
 
 @app.route("/api/v1/products", methods=["POST"])
 @token_required
@@ -98,7 +138,6 @@ def add_product():
 @app.route("/api/v1/products/featured", methods=["GET"])
 def get_featured_products():
     products = list(products_collection.find())
-
     # Calcular média de score para cada produto
     featured = []
     for p in products:
@@ -125,8 +164,6 @@ def get_products_by_category(categoria):
     return jsonify(products)
 
 
-
-
 @app.route("/api/v1/products/categories", methods=["GET"])
 def get_all_categories():
     categorias = products_collection.distinct("categoria")
@@ -144,6 +181,7 @@ def get_products_by_price():
 
     products_cursor = products_collection.find(query).sort("preco", sort_order)
     return jsonify([{**p, "_id": str(p["_id"])} for p in products_cursor])
+
 
 # ===============================
 # Carrinho
@@ -222,6 +260,7 @@ def get_cart_by_user():
             "message": "Carrinho vazio."
         })
 
+
 @app.route("/api/v1/cart/clear", methods=["POST"])
 def clear_cart():
     data = request.json
@@ -231,6 +270,7 @@ def clear_cart():
     return jsonify({
         "message": "Carrinho apagado com sucesso" if result.deleted_count > 0 else "Carrinho não encontrado"
     }), 200
+
 
 @app.route("/api/v1/products/cart", methods=["GET"])
 def get_saved_cart():
@@ -242,6 +282,7 @@ def get_saved_cart():
         return jsonify({"items": []})
 
     return jsonify({"items": carrinho[0].get("items", [])})
+
 
 @app.route("/api/v1/cart/remove", methods=["POST"])
 def remove_item_from_cart():
@@ -261,6 +302,7 @@ def remove_item_from_cart():
         return jsonify({"error": "Item não encontrado no carrinho"}), 404
 
     return jsonify({"message": "Item removido com sucesso"}), 200
+
 
 @app.route("/api/v1/cart/update", methods=["POST"])
 def update_cart_item_quantity():
@@ -301,6 +343,78 @@ def update_cart_item_quantity():
 
 
 # ===============================
+# Favoritos
+# ===============================
+
+# Adicionar um produto aos favoritos
+@app.route("/api/v1/favoritos/add", methods=["POST"])
+#@token_required
+def add_favorite():
+    data = request.json
+    user_id = data.get("userId") or "user_guest"
+    product_id = data.get("productId")
+
+    if not product_id:
+        return jsonify({"error": "productId é obrigatório"}), 400
+
+    existing = favorites_collection.find_one({
+        "user_id": user_id,
+        "product_id": str(product_id)
+    })
+
+    if existing:
+        return jsonify({"message": "Already in favorites"}), 200
+
+    favorites_collection.insert_one({
+        "user_id": user_id,
+        "product_id": str(product_id)
+    })
+
+    return jsonify({"message": "Added to favorites"}), 201
+
+
+# Remover um produto dos favoritos
+@app.route("/api/v1/favoritos/remove", methods=["DELETE"])
+#@token_required
+def remove_favorite():
+    data = request.json
+    user_id = data.get("userId") or "user_guest"
+    product_id = data.get("productId")
+
+    if not product_id:
+        return jsonify({"error": "productId é obrigatório"}), 400
+
+    result = favorites_collection.delete_one({
+        "user_id": user_id,
+        "product_id": str(product_id)
+    })
+
+    if result.deleted_count > 0:
+        return jsonify({"message": "Removed from favorites"}), 200
+    else:
+        return jsonify({"message": "Not found"}), 404
+
+
+# Obter todos os produtos favoritos de um usuário
+@app.route("/api/v1/favoritos", methods=["GET"])
+#@token_required
+def get_favorites():
+    user_id = request.args.get("userId") or "user_guest"
+
+    favorite_links = list(favorites_collection.find({"user_id": user_id}))
+    product_ids = [int(f["product_id"]) for f in favorite_links if "product_id" in f]
+
+    if not product_ids:
+        return jsonify([])
+
+    products = list(products_collection.find({"id": {"$in": product_ids}}))
+    for p in products:
+        p["_id"] = str(p["_id"])
+
+    return jsonify(products)
+
+
+# ===============================
 # Autenticação
 # ===============================
 
@@ -321,6 +435,8 @@ def signup():
     })
     return jsonify({"message": "Utilizador registado"}), 201
 
+
+'''
 @app.route("/api/v1/user/login", methods=["POST"])
 def login():
     data = request.json
@@ -337,9 +453,62 @@ def login():
             "user": user["username"],
             "exp": datetime.datetime.utcnow() + datetime.timedelta(hours=2)
         }, SECRET_KEY, algorithm="HS256")
+        if isinstance(token, bytes):
+            token = token.decode("utf-8")  # EXPLICAÇÃO: Corrige retorno do JWT no Python < 3.9
         return jsonify({"token": token})
     else:
         return jsonify({"error": "Credenciais inválidas"}), 401
+'''
+
+
+@app.route('/api/v1/user/login', methods=['POST'])
+def login():
+    dados = request.json
+    # Fazer Login do user
+    # Check se user é válido e se tem o campo confirmation = True
+    # Apenas gerir Authentication Token se confirmation = True
+    token = jwt.encode({
+        'username': dados['username'],
+        'exp': datetime.utcnow() + timedelta(hours=1)
+    }, app.config['SECRET_KEY'], algorithm="HS256")
+
+    return jsonify({'token': token}), 200
+'''
+
+@app.route('/api/v1/user/login', methods=['POST'])
+def login():
+    dados = request.json
+
+    # Verifica se os campos foram enviados
+    if not dados or not dados.get('email') or not dados.get('password'):
+        return jsonify({'message': 'Email e palavra-passe são obrigatórios'}), 400
+
+    # Procurar utilizador com base no email
+    user = User.query.filter_by(email=dados['email']).first()
+
+    if not user:
+        return jsonify({'message': 'Utilizador não encontrado'}), 404
+
+    # Verifica a palavra-passe (usa hash)
+    if not check_password_hash(user.password, dados['password']):
+        return jsonify({'message': 'Palavra-passe incorreta'}), 401
+
+    # Verifica se o user confirmou a conta
+    if not user.confirmation:
+        return jsonify({'message': 'Conta ainda não confirmada'}), 403
+
+    # Criar token JWT
+    token = jwt.encode({
+        'username': user.name,
+        'exp': datetime.utcnow() + timedelta(hours=1)
+    }, app.config['SECRET_KEY'], algorithm="HS256")
+
+    return jsonify({'token': token, 'user': {
+        '_id': user.id,
+        'email': user.email,
+        'name': user.name
+    }}), 200
+'''
 
 @app.route("/api/v1/user/confirmation", methods=["POST"])
 @token_required
@@ -350,6 +519,7 @@ def confirm_user():
     if result.matched_count == 0:
         return jsonify({"error": "Utilizador não encontrado"}), 404
     return jsonify({"message": "Utilizador confirmado"}), 200
+
 
 # ===============================
 

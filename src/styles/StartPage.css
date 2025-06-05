@@ -1,0 +1,32 @@
+/* src/styles/StartPage.css */
+.start-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.start-container h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.start-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.start-buttons button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.start-buttons button:hover {
+  background-color: #1e40af;
+}
