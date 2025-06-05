@@ -17,34 +17,25 @@ function CartItem(props) {
 
         <div className="item-quantity">
           <button
-            onClick={function () {
-              props.onUpdateQuantity(item.id, item.quantity - 1);
-            }}
-            disabled={item.quantity <= 1}
+              onClick={() => props.onUpdateQuantity(item.quantity - 1)}
+              disabled={item.quantity <= 1}
           >
             -
           </button>
           <span>{item.quantity}</span>
           <button
-            onClick={function () {
-              props.onUpdateQuantity(item.id, item.quantity + 1);
-            }}
+              onClick={() => props.onUpdateQuantity(item.quantity + 1)}
           >
             +
           </button>
         </div>
 
         <div className="item-actions">
-
-          <button
-            className="remove-button"
-            onClick={function () {
-              props.onRemove(item.id);
-            }}
-          >
+          <button className="remove-button" onClick={props.onRemove}>
             Remove
           </button>
         </div>
+
       </div>
       <p className="item-price">€{(item.price * item.quantity).toFixed(2)}</p>
     </div>

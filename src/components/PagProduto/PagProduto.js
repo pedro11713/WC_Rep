@@ -1,12 +1,9 @@
-// src/pages/PagProduto.js
 import React, {useState, useContext} from "react";
-import {useParams, Link} from "react-router-dom";
+import {useParams, Link, useNavigate} from "react-router-dom";
 import {FavoriteContext} from "../Favoritos/FavoriteContext";
 import products from "../../products.json";
 import "../../styles/PagProduto.css";
-import {useNavigate} from "react-router-dom"; // <--- ADICIONA ISTO
 import {CartContext} from "../Carrinho/CartContext";
-
 
 function PagProduto() {
     const {id} = useParams();
@@ -15,8 +12,7 @@ function PagProduto() {
     const [cor, setCor] = useState(produto?.color?.[0] || "");
     const {addToFavorites} = useContext(FavoriteContext);
     const {addToCart} = useContext(CartContext);
-
-    const navigate = useNavigate(); // <--- ADICIONA ISTO
+    const navigate = useNavigate();
 
     if (!produto) return <div className="produto-nao-encontrado">Produto não encontrado!</div>;
 
@@ -24,11 +20,46 @@ function PagProduto() {
         (p) => p.category === produto.category && String(p.id) !== String(id)
     );
 
+    async function handleAddToCart() {
+      const item = {
+        productId: produto.id,
+        name: produto.name,
+        price: produto.price,
+        image: produto.image,
+        size: tamanho,
+        color: cor,
+        quantity: 1,
+      };
+
+      try {
+        const response = await fetch("http://localhost:5000/api/v1/cart/add", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId: "guest", // ou usa o username se tiver login
+            item: item,
+          }),
+        });
+
+        if (response.ok) {
+          alert("Produto adicionado ao carrinho!");
+        } else {
+          const error = await response.json();
+          alert("Erro ao adicionar ao carrinho: " + error.message);
+        }
+      } catch (err) {
+        console.error("Erro:", err);
+        alert("Erro ao conectar ao servidor.");
+      }
+    }
+
+
     function handleFavoritar() {
         addToFavorites(produto);
         navigate("/favoritos");
     }
-
 
     return (
         <div className="pag-produto-container">
@@ -64,22 +95,7 @@ function PagProduto() {
                     </div>
                     <div className="produto-acoes">
                         <button className="btn btn-favoritos" onClick={handleFavoritar}>❤ Favorito</button>
-                        <button
-                            className="btn btn-carrinho"
-                            onClick={() => {
-                                const itemComOpcoes = {
-                                    ...produto,
-                                    size: tamanho,
-                                    color: cor,
-                                };
-                                addToCart(itemComOpcoes);
-                                navigate("/carrinho");
-                            }}
-                        >
-                            🛒 Carrinho
-                        </button>
-
-
+                        <button onClick={handleAddToCart}>Adicionar ao carrinho</button>
                     </div>
                 </div>
             </div>
@@ -91,8 +107,9 @@ function PagProduto() {
                         <li key={idx} className="produto-review">
                             <div>
                                 <b>{r.username}</b>
-                                <span
-                                    className="produto-review-score">{'★'.repeat(r.score)}{'☆'.repeat(5 - r.score)}</span>
+                                <span className="produto-review-score">
+                                    {'★'.repeat(r.score)}{'☆'.repeat(5 - r.score)}
+                                </span>
                             </div>
                             <div>{r.comment}</div>
                         </li>

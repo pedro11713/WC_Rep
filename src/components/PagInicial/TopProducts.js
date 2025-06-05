@@ -1,31 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import productsData from '../../products.json';
 import '../../styles/TopProducts.css';
 
 function TopProducts() {
   const [topProducts, setTopProducts] = useState([]);
 
   useEffect(() => {
-    const productsWithRatings = productsData.map(product => {
-      const totalScore = product.reviews.reduce((sum, review) => sum + review.score, 0);
-      const avgScore = product.reviews.length > 0 ? totalScore / product.reviews.length : 0;
-      return { ...product, avgScore };
-    });
+    fetch('http://localhost:5000/api/v1/products/featured')
+      .then(response => response.json())
+      .then(data => {
+        const topRated = data
+          .map(product => ({
+            ...product,
+            avgScore: product.avg_score || 0
+          }))
+          .sort((a, b) => b.avgScore - a.avgScore)
+          .slice(0, 3);
 
-    const topRated = productsWithRatings
-      .sort((a, b) => b.avgScore - a.avgScore)
-      .slice(0, 3);
-
-    setTopProducts(topRated);
+        setTopProducts(topRated);
+      })
+      .catch(error => {
+        console.error('Erro ao buscar produtos destacados:', error);
+      });
   }, []);
 
   return (
     <div className="top-products">
-      <h2>Top Produtos (Por Avalição Média)</h2>
+      <h2>Top Produtos (Por Avaliação Média)</h2>
       <div className="product-list">
         {topProducts.map(product => (
-          <Link key={product.id} to={`/produto/${product.id}`}  className="product-link">
+          <Link key={product.id} to={`/produto/${product.id}`} className="product-link">
             <div className="product">
               <h3>{product.name}</h3>
               <p>€{product.price.toFixed(2)}</p>

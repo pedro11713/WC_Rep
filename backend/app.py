@@ -97,18 +97,41 @@ def add_product():
 
 @app.route("/api/v1/products/featured", methods=["GET"])
 def get_featured_products():
-    products = products_collection.find({"featured": True}).limit(10)
-    return jsonify([{**p, "_id": str(p["_id"])} for p in products])
+    products = list(products_collection.find())
+
+    # Calcular média de score para cada produto
+    featured = []
+    for p in products:
+        reviews = p.get("reviews", [])
+        if reviews:
+            total_score = sum(r.get("score", 0) for r in reviews)
+            avg_score = total_score / len(reviews)
+            p["avg_score"] = avg_score
+            featured.append(p)
+
+    # Ordenar por média de score decrescente e pegar os top 10
+    top_products = sorted(featured, key=lambda x: x["avg_score"], reverse=True)[:10]
+
+    # Converter ObjectId para string
+    result = [{**p, "_id": str(p["_id"])} for p in top_products]
+
+    return jsonify(result)
+
 
 @app.route("/api/v1/products/categories/<string:categoria>", methods=["GET"])
 def get_products_by_category(categoria):
-    page = int(request.args.get("page", 1))
-    limit = int(request.args.get("limit", 10))
-    skip = (page - 1) * limit
-
-    products_cursor = products_collection.find({"categoria": categoria}).skip(skip).limit(limit)
+    products_cursor = products_collection.find({"categoria": categoria})
     products = [{**p, "_id": str(p["_id"])} for p in products_cursor]
     return jsonify(products)
+
+
+
+
+@app.route("/api/v1/products/categories", methods=["GET"])
+def get_all_categories():
+    categorias = products_collection.distinct("categoria")
+    return jsonify(sorted(categorias))
+
 
 @app.route("/api/v1/products/price", methods=["GET"])
 def get_products_by_price():
@@ -129,8 +152,153 @@ def get_products_by_price():
 @app.route("/api/v1/products/cart", methods=["POST"])
 def save_cart():
     data = request.json
-    result = cart_collection.insert_one(data)
-    return jsonify({"message": "Carrinho guardado", "id": str(result.inserted_id)}), 201
+    print("Dados recebidos do frontend:", data)
+
+    data["created_at"] = datetime.datetime.utcnow()
+
+    # Garante que tens a referência correta à coleção
+    carrinho_collection = db["Carrinho"]
+    result = carrinho_collection.insert_one(data)
+
+    return jsonify({
+        "message": "Carrinho guardado com sucesso!",
+        "id": str(result.inserted_id)
+    }), 201
+
+
+@app.route("/api/v1/cart/add", methods=["POST"])
+def add_item_to_cart():
+    data = request.json
+    user_id = data.get("userId", "guest")
+    item = data.get("item")
+
+    if not item:
+        return jsonify({"error": "Item é obrigatório"}), 400
+
+    existing_cart = cart_collection.find_one({"userId": user_id})
+
+    if existing_cart:
+        # Verifica se o produto já existe no carrinho
+        existing_item = next((i for i in existing_cart.get("items", []) if i["productId"] == item["productId"]), None)
+
+        if existing_item:
+            # Atualiza a quantidade somando a nova quantidade
+            new_quantity = existing_item.get("quantity", 1) + item.get("quantity", 1)
+            cart_collection.update_one(
+                {"userId": user_id, "items.productId": item["productId"]},
+                {"$set": {"items.$.quantity": new_quantity}}
+            )
+        else:
+            # Produto não existe ainda, adiciona novo
+            cart_collection.update_one(
+                {"userId": user_id},
+                {"$push": {"items": item}}
+            )
+    else:
+        cart_collection.insert_one({
+            "userId": user_id,
+            "items": [item],
+            "createdAt": datetime.datetime.utcnow()
+        })
+
+    return jsonify({"message": "Item adicionado ao carrinho!"}), 200
+
+
+@app.route("/api/v1/cart", methods=["GET"])
+def get_cart_by_user():
+    user_id = request.args.get("userId", "guest")
+    cart = cart_collection.find_one({"userId": user_id})
+
+    if cart:
+        return jsonify({
+            "userId": user_id,
+            "items": cart.get("items", []),
+            "cartId": str(cart["_id"])
+        })
+    else:
+        return jsonify({
+            "userId": user_id,
+            "items": [],
+            "message": "Carrinho vazio."
+        })
+
+@app.route("/api/v1/cart/clear", methods=["POST"])
+def clear_cart():
+    data = request.json
+    user_id = data.get("userId", "guest")
+    result = cart_collection.delete_one({"userId": user_id})
+
+    return jsonify({
+        "message": "Carrinho apagado com sucesso" if result.deleted_count > 0 else "Carrinho não encontrado"
+    }), 200
+
+@app.route("/api/v1/products/cart", methods=["GET"])
+def get_saved_cart():
+    # Vai buscar o carrinho mais recente da coleção Carrinho
+    carrinho = cart_collection.find().sort("created_at", -1).limit(1)
+    carrinho = list(carrinho)
+
+    if not carrinho:
+        return jsonify({"items": []})
+
+    return jsonify({"items": carrinho[0].get("items", [])})
+
+@app.route("/api/v1/cart/remove", methods=["POST"])
+def remove_item_from_cart():
+    data = request.json
+    user_id = data.get("userId", "guest")
+    product_id = data.get("productId")
+
+    if not product_id:
+        return jsonify({"error": "productId é obrigatório"}), 400
+
+    result = cart_collection.update_one(
+        {"userId": user_id},
+        {"$pull": {"items": {"productId": product_id}}}
+    )
+
+    if result.modified_count == 0:
+        return jsonify({"error": "Item não encontrado no carrinho"}), 404
+
+    return jsonify({"message": "Item removido com sucesso"}), 200
+
+@app.route("/api/v1/cart/update", methods=["POST"])
+def update_cart_item_quantity():
+    data = request.json
+    print("Dados recebidos para update:", data)
+    user_id = data.get("userId", "guest")
+    product_id = data.get("productId")
+    new_quantity = data.get("quantity")
+
+    if not product_id or new_quantity is None:
+        print("Faltam productId ou quantity")
+        return jsonify({"error": "productId e quantity são obrigatórios"}), 400
+
+    cart = cart_collection.find_one({"userId": user_id})
+    if not cart:
+        print("Carrinho não encontrado")
+        return jsonify({"error": "Carrinho não encontrado"}), 404
+
+    if new_quantity <= 0:
+        cart_collection.update_one(
+            {"userId": user_id},
+            {"$pull": {"items": {"productId": product_id}}}
+        )
+        print("Item removido do carrinho")
+        return jsonify({"message": "Item removido do carrinho"}), 200
+
+    result = cart_collection.update_one(
+        {"userId": user_id, "items.productId": product_id},
+        {"$set": {"items.$.quantity": new_quantity}}
+    )
+
+    if result.matched_count == 0:
+        print("Item não encontrado no carrinho")
+        return jsonify({"error": "Item não encontrado no carrinho"}), 404
+
+    print("Quantidade atualizada com sucesso")
+    return jsonify({"message": "Quantidade atualizada com sucesso"}), 200
+
 
 # ===============================
 # Autenticação
