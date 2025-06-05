@@ -5,7 +5,8 @@ from pymongo import MongoClient
 # from bson.objectid import ObjectId
 import bcrypt
 import jwt
-import datetime
+#from datetime import datetime, timedelta, timezone # Adicione timezone aqui
+
 
 # import jwt
 from datetime import datetime, timedelta
@@ -351,7 +352,7 @@ def update_cart_item_quantity():
 #@token_required
 def add_favorite():
     data = request.json
-    user_id = data.get("userId") or "user_guest"
+    user_id = data.get("userId") or "guest"
     product_id = data.get("productId")
 
     if not product_id:
@@ -378,7 +379,7 @@ def add_favorite():
 #@token_required
 def remove_favorite():
     data = request.json
-    user_id = data.get("userId") or "user_guest"
+    user_id = data.get("userId") or "guest"
     product_id = data.get("productId")
 
     if not product_id:
@@ -399,7 +400,7 @@ def remove_favorite():
 @app.route("/api/v1/favoritos", methods=["GET"])
 #@token_required
 def get_favorites():
-    user_id = request.args.get("userId") or "user_guest"
+    user_id = request.args.get("userId") or "guest"
 
     favorite_links = list(favorites_collection.find({"user_id": user_id}))
     product_ids = [int(f["product_id"]) for f in favorite_links if "product_id" in f]
@@ -421,94 +422,74 @@ def get_favorites():
 @app.route("/api/v1/user/signup", methods=["POST"])
 def signup():
     data = request.json
-    username = data.get("username")
+    # Corrigido para receber os campos enviados pelo frontend
+    name = data.get("name")
+    email = data.get("email")
     password = data.get("password")
-    hashed = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
-    if users_collection.find_one({"username": username}):
-        return jsonify({"error": "Username já existe"}), 400
+    # Validação básica
+    if not name or not email or not password:
+        return jsonify({"message": "Faltam campos obrigatórios."}), 400
 
+    # Verificar se o email já existe
+    if users_collection.find_one({"email": email}):
+        return jsonify({"message": "Este email já está a ser utilizado."}), 400
+
+    # Criptografar a password
+    hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+
+    # Inserir o novo utilizador com os campos corretos
     users_collection.insert_one({
-        "username": username,
-        "password": hashed,
-        "confirmed": False
+        "name": name,
+        "email": email,
+        "password": hashed_password,
+        # Adicionei este campo, pode ser útil no futuro
+        "confirmed": True  # Ou False se precisar de confirmação por email
     })
-    return jsonify({"message": "Utilizador registado"}), 201
+
+    return jsonify({"message": "Utilizador registado com sucesso!"}), 201
 
 
-'''
 @app.route("/api/v1/user/login", methods=["POST"])
 def login():
     data = request.json
-    user = users_collection.find_one({"username": data.get("username")})
+    email = data.get("email")
+    password = data.get("password")
+
+    if not email or not password:
+        return jsonify({"message": "Email e palavra-passe são obrigatórios."}), 400
+
+    user = users_collection.find_one({"email": email})
 
     if not user:
-        return jsonify({"error": "Utilizador não encontrado"}), 404
+        return jsonify({"message": "Credenciais inválidas."}), 401
 
-    if not user["confirmed"]:
-        return jsonify({"error": "Utilizador ainda não confirmado"}), 403
+    if bcrypt.checkpw(password.encode('utf-8'), user.get("password")):
+        # A password está correta, gerar o token
+        payload = {
+            "user_id": str(user["_id"]),
+            "email": user["email"],
+            "exp": datetime.utcnow() + timedelta(hours=24) # Usando a versão compatível
+        }
 
-    if bcrypt.checkpw(data["password"].encode('utf-8'), user["password"]):
-        token = jwt.encode({
-            "user": user["username"],
-            "exp": datetime.datetime.utcnow() + datetime.timedelta(hours=2)
-        }, SECRET_KEY, algorithm="HS256")
-        if isinstance(token, bytes):
-            token = token.decode("utf-8")  # EXPLICAÇÃO: Corrige retorno do JWT no Python < 3.9
-        return jsonify({"token": token})
+        # jwt.encode() na sua versão já retorna uma string. Não precisa de .decode()
+        token = jwt.encode(
+            payload,
+            app.config['SECRET_KEY'],
+            algorithm="HS256"
+        )
+
+        # Retornar a resposta que o frontend espera
+        return jsonify({
+            "token": token,  # Usar a variável 'token' diretamente
+            "user": {
+                "_id": str(user["_id"])
+            }
+        })
     else:
-        return jsonify({"error": "Credenciais inválidas"}), 401
-'''
+        # A password está incorreta
+        return jsonify({"message": "Credenciais inválidas."}), 401
 
-
-@app.route('/api/v1/user/login', methods=['POST'])
-def login():
-    dados = request.json
-    # Fazer Login do user
-    # Check se user é válido e se tem o campo confirmation = True
-    # Apenas gerir Authentication Token se confirmation = True
-    token = jwt.encode({
-        'username': dados['username'],
-        'exp': datetime.utcnow() + timedelta(hours=1)
-    }, app.config['SECRET_KEY'], algorithm="HS256")
-
-    return jsonify({'token': token}), 200
-'''
-
-@app.route('/api/v1/user/login', methods=['POST'])
-def login():
-    dados = request.json
-
-    # Verifica se os campos foram enviados
-    if not dados or not dados.get('email') or not dados.get('password'):
-        return jsonify({'message': 'Email e palavra-passe são obrigatórios'}), 400
-
-    # Procurar utilizador com base no email
-    user = User.query.filter_by(email=dados['email']).first()
-
-    if not user:
-        return jsonify({'message': 'Utilizador não encontrado'}), 404
-
-    # Verifica a palavra-passe (usa hash)
-    if not check_password_hash(user.password, dados['password']):
-        return jsonify({'message': 'Palavra-passe incorreta'}), 401
-
-    # Verifica se o user confirmou a conta
-    if not user.confirmation:
-        return jsonify({'message': 'Conta ainda não confirmada'}), 403
-
-    # Criar token JWT
-    token = jwt.encode({
-        'username': user.name,
-        'exp': datetime.utcnow() + timedelta(hours=1)
-    }, app.config['SECRET_KEY'], algorithm="HS256")
-
-    return jsonify({'token': token, 'user': {
-        '_id': user.id,
-        'email': user.email,
-        'name': user.name
-    }}), 200
-'''
 
 @app.route("/api/v1/user/confirmation", methods=["POST"])
 @token_required
