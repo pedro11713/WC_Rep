@@ -1,17 +1,12 @@
 import React, { createContext, useState, useEffect, useCallback } from 'react';
 
-// 1. Cria o contexto
 export const CartContext = createContext();
 
-// 2. Cria o Provedor (Provider)
 export const CartProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([]);
-    const [loading, setLoading] = useState(false); // Para feedback visual
+    const [loading, setLoading] = useState(false);
     const token = localStorage.getItem('token');
 
-    // --- FUNÇÕES DE API ---
-
-    // Função para carregar o carrinho do utilizador
     const fetchCart = useCallback(async () => {
         if (!token) {
             setCartItems([]);
@@ -26,7 +21,7 @@ export const CartProvider = ({ children }) => {
                 const data = await res.json();
                 setCartItems(data.items || []);
             } else {
-                setCartItems([]); // Limpa em caso de erro (ex: token inválido)
+                setCartItems([]);
             }
         } catch (error) {
             console.error("Erro ao carregar carrinho:", error);
@@ -35,12 +30,10 @@ export const CartProvider = ({ children }) => {
         }
     }, [token]);
 
-    // Carrega o carrinho quando o componente monta ou o token muda
     useEffect(() => {
         fetchCart();
     }, [fetchCart]);
 
-    // Função genérica para fazer chamadas de API do carrinho
     const updateCartOnServer = async (endpoint, body) => {
         if (!token) return false;
         try {
@@ -59,13 +52,9 @@ export const CartProvider = ({ children }) => {
         }
     };
 
-
-    // --- FUNÇÕES DE AÇÃO (expostas para os componentes) ---
-
     const addToCart = async (item) => {
         const success = await updateCartOnServer('add', { item });
         if (success) {
-            // Recarrega o carrinho para obter o estado mais recente da DB
             await fetchCart();
         } else {
             alert("Ocorreu um erro ao adicionar o item ao carrinho.");
@@ -73,35 +62,52 @@ export const CartProvider = ({ children }) => {
     };
 
     const removeFromCart = async (itemIdentifier) => {
-        // itemIdentifier pode ser um objeto com productId, size, color
+        // --- Atualização Otimista ---
+        const originalCart = [...cartItems];
+        const newCart = cartItems.filter(item => !(item.productId === itemIdentifier.productId && item.size === itemIdentifier.size && item.color === itemIdentifier.color));
+        setCartItems(newCart);
+
         const success = await updateCartOnServer('remove', itemIdentifier);
-        if (success) {
-            await fetchCart();
-        } else {
+        if (!success) {
+            setCartItems(originalCart); // Reverte se a API falhar
             alert("Ocorreu um erro ao remover o item.");
         }
     };
 
+    // --- A FUNÇÃO CRUCIAL MODIFICADA ---
     const updateQuantity = async (itemIdentifier, newQuantity) => {
+        if (newQuantity < 1) return; // Não permite quantidade menor que 1
+
+        // 1. Atualização Otimista no Frontend
+        const originalCart = [...cartItems]; // Guarda o estado original
+        const updatedCart = cartItems.map(item => {
+            if (item.productId === itemIdentifier.productId && item.size === itemIdentifier.size && item.color === itemIdentifier.color) {
+                return { ...item, quantity: newQuantity };
+            }
+            return item;
+        });
+        setCartItems(updatedCart); // Atualiza a UI imediatamente
+
+        // 2. Envia a atualização para o Backend em segundo plano
         const success = await updateCartOnServer('update', { ...itemIdentifier, quantity: newQuantity });
-        if (success) {
-            await fetchCart();
-        } else {
+
+        // 3. Se a API falhar, reverte a alteração na UI
+        if (!success) {
+            setCartItems(originalCart);
             alert("Ocorreu um erro ao atualizar a quantidade.");
         }
     };
 
+
     const clearCart = async () => {
         const success = await updateCartOnServer('clear', {});
         if (success) {
-            setCartItems([]); // Limpa o estado local imediatamente
+            setCartItems([]);
         } else {
             alert("Ocorreu um erro ao limpar o carrinho.");
         }
     };
 
-
-    // --- VALOR A SER FORNECIDO PELO CONTEXTO ---
     const value = {
         cartItems,
         loading,
@@ -109,7 +115,7 @@ export const CartProvider = ({ children }) => {
         removeFromCart,
         updateQuantity,
         clearCart,
-        fetchCart // Exporta para poder recarregar manualmente se necessário
+        fetchCart
     };
 
     return (

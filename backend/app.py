@@ -267,8 +267,27 @@ def get_cart_by_user():
         return jsonify({"items": [], "user_id": user_id})
 
 
-# Adicione as outras rotas (remove, update, clear) com a mesma lógica de autenticação
-# Exemplo para remover:
+# app.py -> Adicione esta função na secção # Carrinho
+
+@app.route("/api/v1/cart/clear", methods=["POST"])
+@token_required # Rota protegida
+def clear_cart():
+    user_id = g.user_payload['user_id']
+
+    # Em vez de apagar o documento do carrinho, apenas esvaziamos o array de items.
+    # Isto é ligeiramente melhor pois mantém o registo do carrinho do utilizador.
+    result = cart_collection.update_one(
+        {"user_id": ObjectId(user_id)},
+        {"$set": {"items": []}} # Define o array de items como vazio
+    )
+
+    if result.matched_count == 0:
+        # Isto acontece se o utilizador não tiver um carrinho (o que é raro mas possível)
+        return jsonify({"message": "Carrinho não encontrado."}), 404
+
+    return jsonify({"message": "Carrinho limpo com sucesso."}), 200
+
+
 @app.route("/api/v1/cart/remove", methods=["POST"])
 @token_required
 def remove_item_from_cart():
@@ -282,6 +301,43 @@ def remove_item_from_cart():
         {"$pull": {"items": {"productId": product_id_int}}}
     )
     return jsonify({"message": "Item removido"}), 200
+
+# app.py -> Adicione esta função
+
+@app.route("/api/v1/cart/update", methods=["POST"])
+@token_required
+def update_cart_item_quantity():
+    user_id = g.user_payload['user_id']
+    data = request.json
+
+    product_id_int = data.get("productId")
+    size = data.get("size")
+    color = data.get("color")
+    new_quantity = data.get("quantity")
+
+    if product_id_int is None or new_quantity is None or new_quantity < 1:
+        return jsonify({"message": "Dados inválidos."}), 400
+
+    # Atualiza o item que corresponde a todos os critérios
+    result = cart_collection.update_one(
+        {
+            "user_id": ObjectId(user_id),
+            "items": {
+                "$elemMatch": {
+                    "productId": product_id_int,
+                    "size": size,
+                    "color": color
+                }
+            }
+        },
+        {"$set": {"items.$.quantity": new_quantity}}
+    )
+
+    if result.matched_count == 0:
+        return jsonify({"message": "Item não encontrado no carrinho"}), 404
+
+    return jsonify({"message": "Quantidade atualizada com sucesso"}), 200
+
 
 # ===============================
 # Favoritos
