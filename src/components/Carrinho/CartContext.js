@@ -8,23 +8,30 @@ function CartProvider(props) {
   ]);
 
   function addToCart(item) {
-    setCartItems(function (prevItems) {
-      var exists = prevItems.find(function (i) {
-        return i.id === item.id;
-      });
+    setCartItems((prevItems) => {
+      const exists = prevItems.find((i) =>
+        i.id === item.id &&
+        i.size === item.size &&
+        i.color === item.color
+      );
 
       if (exists) {
-        return prevItems.map(function (i) {
-          if (i.id === item.id) {
+        return prevItems.map((i) => {
+          if (
+            i.id === item.id &&
+            i.size === item.size &&
+            i.color === item.color
+          ) {
             return { ...i, quantity: i.quantity + 1 };
           }
           return i;
         });
       }
 
-      return prevItems.concat({ ...item, quantity: 1 });
+      return [...prevItems, { ...item, quantity: 1 }];
     });
   }
+
 
   function removeItem(id) {
     setCartItems(function (prevItems) {
@@ -33,6 +40,11 @@ function CartProvider(props) {
       });
     });
   }
+
+  function clearCart() {
+  setCartItems([]);
+  }
+
 
   function updateQuantity(id, newQuantity) {
     setCartItems(function (prevItems) {
@@ -47,7 +59,7 @@ function CartProvider(props) {
 
   return (
     <CartContext.Provider
-      value={{ cartItems, addToCart, removeItem, updateQuantity }}
+      value={{ cartItems, addToCart, removeItem, updateQuantity, clearCart }}
     >
       {props.children}
     </CartContext.Provider>

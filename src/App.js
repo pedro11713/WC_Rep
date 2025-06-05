@@ -10,6 +10,8 @@ import FavoritesPages from "./components/Favoritos/FavoritesPages";
 import FavoriteProvider from "./components/Favoritos/FavoriteContext";
 import CartProvider from "./components/Carrinho/CartContext";
 import CartContent from "./components/Carrinho/CartContent";
+import SuccessPage from './components/Carrinho/SuccessPage';
+
 
 
 function App() {
@@ -24,6 +26,7 @@ function App() {
                         <Route path="/produtos" element={<ProductList/>}/>
                         <Route path="/favoritos" element={<FavoritesPages/>}/>
                         <Route path="/carrinho" element={<CartContent/>}/>
+                        <Route path="/success" element={<SuccessPage/>} />
                     </Routes>
                     <Footer/>
                 </Router>
