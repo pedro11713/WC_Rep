@@ -1,68 +1,112 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from 'react';
+import { FavoriteContext } from './FavoriteContext';
+import { CartContext } from '../Carrinho/CartContext';
+import { Link, useNavigate } from 'react-router-dom';
+import '../../styles/FavoriteStyles.css'; // Importa o seu ficheiro CSS
+
+// PASSO 1: Importar a sua imagem
+// Ajuste o caminho '../assets/Objeto.png' conforme a estrutura real do seu projeto.
+// Este caminho assume que a pasta 'assets' está um nível acima de onde está este ficheiro.
+import productImage from '../../assets/Objeto.png';
 
 const FavoritesPages = () => {
-  const [favorites, setFavorites] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const userId = "guest"; // ou outro id, se estiver autenticado
+  const { favoriteItems, removeFromFavorites } = useContext(FavoriteContext);
+  const { addToCart } = useContext(CartContext);
+  const token = localStorage.getItem('token');
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    async function fetchFavorites() {
-      try {
-        const res = await fetch(`http://localhost:5000/api/v1/favoritos?userId=${userId}`);
-        const data = await res.json();
-        setFavorites(data || []); // Supondo que a API retorna lista direta
-      } catch (err) {
-        console.error("Erro ao buscar favoritos:", err);
-      } finally {
-        setLoading(false);
-      }
+// Em FavoritesPages.jsx
+
+const handleAddToCart = (product) => {
+    if (!token) {
+        alert("Precisa de fazer login para adicionar produtos ao carrinho.");
+        navigate('/login');
+        return;
     }
 
-    fetchFavorites();
-  }, [userId]);
+    // --- CORREÇÃO AQUI ---
+    const item = {
+      productId: product.id,
+      name: product.name,
+      price: product.price,
+      image: productImage,
+      quantity: 1,
+      // Adiciona um tamanho e cor padrão, se existirem no objeto 'product'
+      // Usa o primeiro valor do array como default.
+      size: product.size && product.size.length > 0 ? product.size[0] : null,
+      color: product.color && product.color.length > 0 ? product.color[0] : null,
+    };
+    // ----------------------
 
-  const handleRemoveFavorite = async (productId) => {
-    try {
-      const res = await fetch(`http://localhost:5000/api/v1/favoritos`, {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userId, productId }),
-      });
+    addToCart(item);
+    alert(`${product.name} foi adicionado ao carrinho!`);
+};
 
-      if (res.ok) {
-        setFavorites((prev) => prev.filter((item) => item._id !== productId));
-      } else {
-        console.error("Erro ao remover favorito");
-      }
-    } catch (err) {
-      console.error("Erro:", err);
-    }
-  };
-
-  if (loading) return <p>A carregar favoritos...</p>;
-  if (favorites.length === 0) return <p>Não tens favoritos guardados.</p>;
-
-  return (
-    <div className="p-6">
-      <h1 className="text-2xl font-semibold mb-4">Os teus Favoritos</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {favorites.map((product) => (
-          <div
-            key={product._id}
-            className="border rounded-xl p-4 shadow hover:shadow-lg transition"
-          >
-            <h2 className="text-lg font-bold">{product.name}</h2>
-            <p>{product.description}</p>
-            <p className="text-green-600 font-semibold mt-2">{product.price}€</p>
-            <button
-              className="mt-3 bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
-              onClick={() => handleRemoveFavorite(product._id)}
-            >
-              Remover
-            </button>
-          </div>
-        ))}
+  // Mensagens para utilizador não logado ou sem favoritos...
+  if (!token) {
+    return (
+      <div className="favorite-page">
+        <h1 className="favorite-header">Os teus Favoritos</h1>
+        <p>Precisa de <Link to="/login">fazer login</Link> para ver os seus favoritos.</p>
       </div>
+    );
+  }
+
+  if (favoriteItems.length === 0) {
+    return (
+      <div className="favorite-page">
+        <h1 className="favorite-header">Os teus Favoritos</h1>
+        <p>A sua lista de favoritos está vazia.</p>
+        <Link to="/" className="explore-button">Explorar Produtos</Link>
+      </div>
+    );
+  }
+
+  // JSX que corresponde ao seu CSS
+  return (
+    <div className="favorite-page">
+      <header className="favorite-header">
+        <h1>Os teus Favoritos</h1>
+      </header>
+
+      <main className="favorite-main">
+        <div className="favorite-items">
+          {favoriteItems.map((product) => (
+            <div key={product.id} className="favorite-card">
+              <Link to={`/products/${product.id}`}>
+                {/*
+                  PASSO 2: Usar a imagem importada 'productImage'
+                  em vez de product.image_url.
+                */}
+                <img
+                  src={productImage}
+                  alt={product.name}
+                />
+              </Link>
+              <div className="favorite-info">
+                <h3>
+                  <Link to={`/products/${product.id}`}>{product.name}</Link>
+                </h3>
+                <p>{product.description}</p>
+                <span>{product.price.toFixed(2)}€</span>
+                <button
+                  className="add-to-cart-button"
+                  onClick={() => handleAddToCart(product)}
+                >
+                  Adicionar ao Carrinho
+                </button>
+              </div>
+              <button
+                className="heart-button active"
+                onClick={() => removeFromFavorites(product.id)}
+                title="Remover dos Favoritos"
+              >
+                ❤️
+              </button>
+            </div>
+          ))}
+        </div>
+      </main>
     </div>
   );
 };

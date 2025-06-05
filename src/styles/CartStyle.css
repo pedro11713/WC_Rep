@@ -1,93 +1,208 @@
+/* src/styles/CartStyle.css */
+
 .cart-page {
   font-family: sans-serif;
   padding: 2rem;
   background-color: #fff;
+  max-width: 1400px;
+  margin: auto;
 }
 
-.cart-header {
-  height: 60px;
+.cart-header h1 {
+  font-size: 2rem;
+  font-weight: bold;
   border-bottom: 1px solid #ccc;
+  padding-bottom: 1rem;
   margin-bottom: 2rem;
 }
 
 .cart-main {
   display: flex;
+  flex-wrap: wrap; /* Permite que o summary vá para baixo em ecrãs pequenos */
   justify-content: space-between;
   gap: 2rem;
   margin-bottom: 3rem;
 }
 
 .cart-items {
-  flex: 2;
+  flex: 2; /* Ocupa 2/3 do espaço */
+  min-width: 300px; /* Largura mínima */
 }
 
 .cart-summary {
-  flex: 1;
+  flex: 1; /* Ocupa 1/3 do espaço */
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 1.5rem;
   background-color: #f9f9f9;
+  height: fit-content;
+  min-width: 280px;
+}
+
+/* Estilo para cada item no carrinho */
+.cart-item {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-item img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.item-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-details h3 {
+  font-weight: bold;
+  margin: 0 0 0.5rem 0;
+}
+
+.item-details p {
+  margin: 0.2rem 0;
+  color: #555;
+}
+
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  width: fit-content;
+  margin-top: 0.5rem;
+}
+
+.quantity-selector button {
+  background: #f0f0f0;
+  border: none;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.quantity-selector button:disabled {
+  cursor: not-allowed;
+}
+.quantity-selector span {
+  padding: 0 1rem;
+}
+
+.remove-button {
+  background: none;
+  border: none;
+  color: #d9534f;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  align-self: flex-start;
+}
+
+.item-total {
+    font-weight: bold;
+    font-size: 1.1rem;
+    min-width: 80px;
+    text-align: right;
+}
+
+
+/* Estilos do Summary (já estavam bons) */
+.cart-summary h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
 }
 
 .summary-row {
   display: flex;
   justify-content: space-between;
-  margin: 0.5rem 0;
+  margin: 0.75rem 0;
 }
 
 .summary-row.total {
   font-weight: bold;
   margin-top: 1rem;
   border-top: 1px solid #ccc;
-  padding-top: 0.5rem;
+  padding-top: 1rem;
+  font-size: 1.1rem;
 }
 
 .checkout-button {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   background-color: #107c10;
   color: white;
   border: none;
   border-radius: 4px;
   margin-top: 1rem;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .back-button {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   margin-top: 0.5rem;
   border: 1px solid #ccc;
   background: transparent;
   cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  display: block;
 }
 
+/* Secção de Produtos Sugeridos */
 .suggested-products {
-  margin-top: 3rem;
+  margin-top: 4rem;
+  border-top: 1px solid #ccc;
+  padding-top: 2rem;
 }
 
-.suggested-section {
-  margin-bottom: 2rem;
+.suggested-section h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
 }
 
 .product-carousel {
   display: flex;
-  gap: 1rem;
-  overflow-x: auto;
+  gap: 1.5rem;
+  overflow-x: auto; /* Permite scroll horizontal */
+  padding-bottom: 1rem; /* Espaço para a barra de scroll */
 }
 
 .product-card {
-  width: 150px;
+  flex: 0 0 180px; /* Não encolhe, não cresce, base de 180px */
   padding: 10px;
-  margin: 5px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 8px;
   text-align: center;
 }
 
 .product-card img {
   width: 100%;
-  height: auto;
+  height: 120px;
   object-fit: cover;
+  margin-bottom: 0.5rem;
+}
+.product-card a {
+    text-decoration: none;
+    color: inherit;
+}
+.product-card p {
+    font-size: 0.9rem;
+}
+
+/* Estilos para o carrinho vazio */
+.empty-cart {
+    text-align: center;
+}
+.empty-cart h1 {
+    border: none;
 }

@@ -1,25 +1,27 @@
-import React, {useState, useEffect, useContext} from "react";
-import {useParams, Link, useNavigate} from "react-router-dom";
-import {FavoriteContext} from "../Favoritos/FavoriteContext";
+import React, { useState, useEffect, useContext } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { FavoriteContext } from "../Favoritos/FavoriteContext"; // Ajuste o caminho se necessário
+import { CartContext } from "../Carrinho/CartContext";
 import "../../styles/PagProduto.css";
-import {CartContext} from "../Carrinho/CartContext";
 
 function PagProduto() {
-    const {id} = useParams();
+    const { id } = useParams(); // Este 'id' é o inteiro da URL, o que está correto.
     const [produto, setProduto] = useState(null);
     const [semelhantes, setSemelhantes] = useState([]);
     const [loading, setLoading] = useState(true);
     const [tamanho, setTamanho] = useState("");
     const [cor, setCor] = useState("");
 
-
-    const {addToFavorites, removeFromFavorites, isFavorited} = useContext(FavoriteContext);
-    const [favoritado, setFavoritado] = useState(false);
-
-    const {addToCart} = useContext(CartContext);
+    // --- Lógica de autenticação e contexto ---
     const navigate = useNavigate();
+    const token = localStorage.getItem('token');
+    const { addToFavorites, removeFromFavorites, isFavorited } = useContext(FavoriteContext);
+    const { addToCart } = useContext(CartContext);
+    const [favoritado, setFavoritado] = useState(false); // Mantemos o estado local para o botão
 
+    // --- Lógica de busca de dados (ajustada para ser consistente) ---
     useEffect(() => {
+        setLoading(true);
         async function fetchProduto() {
             try {
                 const res = await fetch(`http://localhost:5000/api/v1/products/${id}`);
@@ -35,92 +37,84 @@ function PagProduto() {
                 setLoading(false);
             }
         }
-
         fetchProduto();
     }, [id]);
 
     useEffect(() => {
         async function fetchSemelhantes() {
+            if (!produto) return;
             try {
                 const res = await fetch(`http://localhost:5000/api/v1/products?limit=1000`);
                 const data = await res.json();
                 const todos = data.products || [];
+                // CORREÇÃO: Usar 'produto.id' (inteiro) para a comparação
                 const semelhantesFiltrados = todos.filter(
-                    (p) => p.category === produto?.category && String(p._id) !== String(id)
+                    (p) => p.category === produto.category && p.id !== produto.id
                 );
                 setSemelhantes(semelhantesFiltrados);
             } catch (err) {
                 console.error("Erro ao buscar semelhantes:", err);
             }
         }
+        fetchSemelhantes();
+    }, [produto]);
 
-        if (produto) fetchSemelhantes();
-    }, [produto, id]);
 
-    async function handleAddToCart() {
+    // --- Lógica das ações do utilizador (atualizada e segura) ---
+
+    // Este useEffect atualiza o estado do botão local 'favoritado'
+    useEffect(() => {
+        if (produto) {
+            // CORREÇÃO: usa 'produto.id' para verificar
+            setFavoritado(isFavorited(produto.id));
+        }
+    }, [produto, isFavorited]); // A dependência do contexto (isFavorited) é suficiente
+
+    // Lida com o clique no botão de favoritar
+    async function handleFavoritar() {
         if (!produto) return;
+        if (!token) {
+            alert("Precisa de fazer login para gerir os favoritos.");
+            navigate('/login');
+            return;
+        }
 
+        // Usa as funções do contexto, que já esperam o 'id' inteiro
+        if (favoritado) {
+            await removeFromFavorites(produto.id);
+        } else {
+            await addToFavorites(produto); // Envia o objeto produto inteiro
+        }
+        // Atualiza o estado local para o feedback visual imediato
+        setFavoritado(!favoritado);
+    }
+
+    // Lida com o clique no botão de adicionar ao carrinho
+    function handleAddToCart() {
+        if (!produto) return;
+        if (!token) {
+            alert("Precisa de fazer login para adicionar ao carrinho.");
+            navigate('/login');
+            return;
+        }
         const item = {
-            productId: produto._id,
+            productId: produto.id, // CORREÇÃO: Usa o 'id' inteiro
             name: produto.name,
             price: produto.price,
-            image: produto.image,
+            image: produto.image_url, // Assumindo que o campo é image_url
             size: tamanho,
             color: cor,
             quantity: 1,
         };
-
-        try {
-            const response = await fetch("http://localhost:5000/api/v1/cart/add", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    userId: "guest",
-                    item,
-                }),
-            });
-
-            if (response.ok) {
-                alert("Produto adicionado ao carrinho!");
-            } else {
-                const error = await response.json();
-                alert("Erro ao adicionar ao carrinho: " + error.message);
-            }
-        } catch (err) {
-            console.error("Erro:", err);
-            alert("Erro ao conectar ao servidor.");
-        }
+        // O CartContext também precisará ser ajustado para usar a autenticação
+        addToCart(item);
+        alert("Produto adicionado ao carrinho!");
     }
-
-
-    //Aquiiii
-    // Dentro de PagProduto()
-
-    useEffect(() => {
-        if (produto) {
-            setFavoritado(isFavorited(produto._id));
-        }
-    }, [produto, isFavorited]);
-
-    async function handleFavoritar() {
-        if (!produto) return;
-
-        if (favoritado) {
-            await removeFromFavorites(produto._id);
-        } else {
-            await addToFavorites(produto);
-        }
-
-        setFavoritado(!favoritado);
-    }
-
-    //Aquiiii
 
     if (loading) return <div>Carregando...</div>;
     if (!produto) return <div className="produto-nao-encontrado">Produto não encontrado!</div>;
 
+    // --- SEU JSX ORIGINAL INTACTO ---
     return (
         <div className="pag-produto-container">
             <div className="produto-card">
@@ -139,17 +133,13 @@ function PagProduto() {
                         <label>
                             Tamanho:
                             <select value={tamanho} onChange={e => setTamanho(e.target.value)}>
-                                {produto.size?.map(tam => (
-                                    <option key={tam} value={tam}>{tam}</option>
-                                ))}
+                                {produto.size?.map(tam => (<option key={tam} value={tam}>{tam}</option>))}
                             </select>
                         </label>
                         <label>
                             Cor:
                             <select value={cor} onChange={e => setCor(e.target.value)}>
-                                {produto.color?.map(c => (
-                                    <option key={c} value={c}>{c}</option>
-                                ))}
+                                {produto.color?.map(c => (<option key={c} value={c}>{c}</option>))}
                             </select>
                         </label>
                     </div>
@@ -167,12 +157,7 @@ function PagProduto() {
                 <ul className="produto-reviews-list">
                     {produto.reviews?.map((r, idx) => (
                         <li key={idx} className="produto-review">
-                            <div>
-                                <b>{r.username}</b>
-                                <span className="produto-review-score">
-                  {'★'.repeat(r.score)}{'☆'.repeat(5 - r.score)}
-                </span>
-                            </div>
+                            <div><b>{r.username}</b><span className="produto-review-score">{'★'.repeat(r.score)}{'☆'.repeat(5 - r.score)}</span></div>
                             <div>{r.comment}</div>
                         </li>
                     ))}
@@ -184,9 +169,8 @@ function PagProduto() {
                 <h2>Produtos Semelhantes</h2>
                 <ul className="produtos-semelhantes-list">
                     {semelhantes.map(p => (
-                        <li key={p._id}>
-                            <Link to={`/produto/${p._id}`}>{p.name}</Link>
-                        </li>
+                        // CORREÇÃO: Usa 'p.id' para a key e o link
+                        <li key={p.id}><Link to={`/products/${p.id}`}>{p.name}</Link></li>
                     ))}
                     {semelhantes.length === 0 && <li>Nenhum produto semelhante.</li>}
                 </ul>
